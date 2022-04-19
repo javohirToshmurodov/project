@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-export const NavbarWrapper = styled.div``;
+export const NavbarWrapper = styled.div`
+  a {
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    :hover {
+      border-bottom: 1px solid white;
+    }
+  }
+`;
 export const Container = styled.div`
   padding: 0 30px;
 `;
@@ -17,18 +25,21 @@ export const SignUpWrapper = styled.div`
   left: 50%;
   background-color: transparent;
   padding: 25px;
-  box-shadow: inset 32px 32px 32px #1c1c1c, inset -32px -32px 32px #282828;
   border-radius: 20px;
-  input{
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  :hover {
+    box-shadow: 0 0 30px 4px rgba(255, 255, 255, 0.4);
+  }
+  input {
     caret-color: white;
     color: white !important;
     background: transparent !important;
-    ::placeholder{
+    ::placeholder {
       color: white;
       letter-spacing: 3px;
       text-transform: lowercase;
     }
-
   }
 `;
 export const HomeWrapper = styled.div``;
@@ -39,4 +50,19 @@ export const CardOfColleague = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
+  img {
+    max-height: 300px;
+    object-fit: cover;
+    width: 100%;
+  }
+`;
+export const aboutCardWrapper = styled.div`
+  :nth-child(2) {
+    flex-direction: row-reverse;
+  }
+`;
+export const Perspective = styled.div`
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateY(20deg) rotateX(40deg) translateX(100px);
+  width: 50%;
 `;

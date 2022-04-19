@@ -8,12 +8,12 @@ export default function Header() {
       <nav data-aos="fade-down" className="navbar navbar-expand-lg navbar-light   ps-4 pe-4">
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">
-            <a className="navbar-brand text-white" href="#">
-              Logo
-            </a>
+            <h3 className="navbar-brand text-white" >
+              Karkaz
+            </h3>
 
             <button
-              className="navbar-toggler bg-white "
+              className="navbar-toggler bg-white"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"

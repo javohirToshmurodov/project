@@ -6,7 +6,7 @@ export const colleagues = [
     position: "Менеджер по кадрам",
     descrption: "Опыт работы в компании более 10 лет",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8eqsPlLn8IRH2netKmOL8A4PpIa17ePs4g&usqp=CAU",
+      "https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTkxfHxidXNpbmVzc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
 
   {
@@ -14,13 +14,53 @@ export const colleagues = [
     position: "Главный бухгалтер",
     descrption: "Опыт работы в компании более 10 лет",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8eqsPlLn8IRH2netKmOL8A4PpIa17ePs4g&usqp=CAU",
+      "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
     fullName: "Холматов Холимкул Аликулович",
     position: "Началник снабжения",
     descrption: "Опыт работы в компании более 10 лет",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8eqsPlLn8IRH2netKmOL8A4PpIa17ePs4g&usqp=CAU",
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    fullName: "Джуматев Саитали Алдашович",
+    position: "Главный бухгалтер",
+    descrption: "Опыт работы в компании более 10 лет",
+    image:
+      "https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+];
+
+export const about = [
+  {
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos voluptatibus eveniet illo animi! Nesciunt deserunt, accusantium suntsapiente delectus ratione quasi ea iure cumque alias, eaque est.Iure corrupti labore deserunt soluta ",
+    img: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YnVzaW5lc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos voluptatibus eveniet illo animi! Nesciunt deserunt, accusantium sunt sapiente delectus ratione quasi ea iure cumque alias, eaque est. Iure corrupti labore deserunt soluta",
+    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos voluptatibus eveniet illo animi! Nesciunt deserunt, accusantium sunt sapiente delectus ratione quasi ea iure cumque alias, eaque est. Iure corrupti labore deserunt soluta",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos voluptatibus eveniet illo animi! Nesciunt deserunt, accusantium sunt sapiente delectus ratione quasi ea iure cumque alias, eaque est. Iure corrupti labore deserunt soluta",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos voluptatibus eveniet illo animi! Nesciunt deserunt, accusantium sunt sapiente delectus ratione quasi ea iure cumque alias, eaque est. Iure corrupti labore deserunt soluta",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  },
+  {
+    title:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eos voluptatibus eveniet illo animi! Nesciunt deserunt, accusantium sunt sapiente delectus ratione quasi ea iure cumque alias, eaque est. Iure corrupti labore deserunt soluta",
+    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
 ];
