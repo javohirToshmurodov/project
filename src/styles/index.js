@@ -50,7 +50,7 @@ export const CardOfColleague = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
-  box-shadow:  0 10px 5px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 5px rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   overflow: hidden;
   img {
@@ -70,12 +70,25 @@ export const Perspective = styled.div`
   width: 50%;
 `;
 export const ImgContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-img{
-  /* height: 90%; */
-  object-fit: cover;
-}
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  img {
+    /* height: 90%; */
+    object-fit: cover;
+  }
+`;
+
+export const Sidebar = styled.div`
+
+  .menuItem {
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.2);
+    border-radius: 10px 40px 10px 40px;
+    li {
+      a {
+        font-size: 17px !important;
+      }
+    }
+  }
+`;

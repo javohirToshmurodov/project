@@ -1,19 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,900;1,300&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: #f1f1f1;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: #888;
 }
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
   background-color: #555;
-}
-*{
-  box-sizing: border-box;
 }
 body {
   margin: 0;
@@ -36,13 +44,6 @@ body {
     #0f2027
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-html {
-  scroll-behavior: smooth;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 
 /* global style */
 
@@ -52,6 +53,10 @@ a {
 }
 ul li {
   list-style-type: none;
+  margin: 0 !important;
+}
+ul{
+  margin-left: -30px;
 }
 .active {
   transform: translateY(-3px);
@@ -59,16 +64,13 @@ ul li {
 h3 {
   cursor: pointer;
 }
-/* background: linear-gradient(
-  135deg,
-  #56406e,
-  #473154,
-  #37233a,
-  #281420,
-  #190606,
-  #1f0606,
-  #260505,
-  #2c0505,
-  #330404,
-  #390404
-); */
+textarea{
+  background: none !important;
+  color: white !important;
+}
+::placeholder{
+  color: white !important;
+}
+table tr td{
+ word-wrap: break-word !important;
+}

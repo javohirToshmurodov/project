@@ -5,7 +5,7 @@ export default function Header() {
   const location = useLocation();
   return (
     <NavbarWrapper>
-      <nav data-aos="fade-down" className="navbar navbar-expand-lg navbar-light   ps-4 pe-4">
+      <nav data-aos="fade-down" className="navbar navbar-expand-lg navbar-light">
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">
             <h3 className="navbar-brand text-white" >

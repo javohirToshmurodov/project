@@ -62,3 +62,41 @@ export const about = [
     img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGJ1c2luZXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
   },
 ];
+export const products = [
+  {
+    productName: "sement",
+    description: "which is builded by the stones of mountains",
+    createdAt: "14.04.2022",
+    sold: "false",
+  },
+  {
+    productName: "tosh",
+    description: "which is brought from the  mountains",
+    createdAt: "16.04.2022",
+    sold: "false",
+  },
+  {
+    productName: "wood",
+    description: "which is brought from the forest ",
+    createdAt: "16.04.2022",
+    sold: "true",
+  },
+  {
+    productName: "ohaktosh",
+    description: "which is brought from the forest ",
+    createdAt: "16.04.2022",
+    sold: "true",
+  },
+  {
+    productName: "wood",
+    description: "which is brought from the forest ",
+    createdAt: "16.04.2022",
+    sold: "true",
+  },
+  {
+    productName: "wood",
+    description: "which is brought from the forest ",
+    createdAt: "16.04.2022",
+    sold: "true",
+  },
+];

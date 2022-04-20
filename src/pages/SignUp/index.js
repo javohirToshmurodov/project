@@ -10,7 +10,7 @@ export default function Signup() {
 
   function handleSubmit() {
     console.log(inputRef.current.value);
-    return inputRef.current.value !== "" ? navigate("/admin") : null
+    return inputRef.current.value !== "" ? navigate("/admin") : null;
   }
   return (
     <SignUpWrapper className="col-md-6 col-sm-8 col-xs-8 col-lg-6 col-xl-4  col-8">
@@ -43,13 +43,15 @@ export default function Signup() {
             placeholder="• • • • • • • • •"
           />
         </div>
-        <button
-          onClick={handleSubmit}
-          type="submit"
-          className="submitBtn btn btn-success"
-        >
-          Submit
-        </button>
+        <div className="text-end">
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            className="submitBtn btn btn-success"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </SignUpWrapper>
   );
