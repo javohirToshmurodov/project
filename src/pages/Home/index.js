@@ -1,7 +1,6 @@
 import React from "react";
 import { HomeWrapper, ImgContainer } from "../../styles";
 import OwnerPng from "../../assets/owner.png";
-import AnimatedText from "react-animated-text-content";
 export default function Home() {
   return (
     <HomeWrapper className="col-12 d-flex  text-white">
