@@ -12,6 +12,9 @@
 ::-webkit-scrollbar-thumb:hover{
   background-color: #555;
 }
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif !important;

@@ -12,7 +12,7 @@ export default function aboutCard() {
                   <img className="img-fluid " src={item.img} alt="" />
                 </Perspective>
               </div>
-              <div className="col-xl-5 col-lg-6 col-md-8 col-12" data-aos="fade-left" data-aos-duration='1400'>
+              <div className="col-xl-5 col-lg-6 col-md-8 col-10" data-aos="fade-left" data-aos-duration='1400'>
                 <div className="d-flex">
                   <div className="d-flex justify-content-center align-items-center">
                     <p>{item.title}</p>

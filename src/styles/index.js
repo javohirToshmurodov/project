@@ -1,3 +1,4 @@
+import Javohir from "../assets/owner.png"
 import styled from "styled-components";
 
 export const NavbarWrapper = styled.div`
@@ -50,8 +51,11 @@ export const CardOfColleague = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
+  box-shadow:  0 10px 5px rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
   img {
-    max-height: 300px;
+    max-height: 250px;
     object-fit: cover;
     width: 100%;
   }
@@ -66,3 +70,13 @@ export const Perspective = styled.div`
   transform: perspective(800px) rotateY(20deg) rotateX(40deg) translateX(100px);
   width: 50%;
 `;
+export const ImgContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+img{
+  /* height: 90%; */
+  object-fit: cover;
+}
+`
