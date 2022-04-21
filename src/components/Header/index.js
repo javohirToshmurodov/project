@@ -28,7 +28,7 @@ export default function Header() {
               className="collapse navbar-collapse justify-content-end "
               id="navbarNav"
             >
-              <ul className="navbar-nav gap-4 align-items-center">
+              <ul className="navbar-nav gap-2 align-items-center">
                 <li className="nav-item">
                   <NavLink
                     to={"/"}

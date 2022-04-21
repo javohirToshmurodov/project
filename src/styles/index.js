@@ -5,6 +5,7 @@ export const NavbarWrapper = styled.div`
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease;
     border-radius: 5px 5px 0 0 ;
+    font-size: 14px;
     :hover {
       border-bottom: 1px solid white;
     }
