@@ -1,16 +1,17 @@
 import React from "react";
-import {  NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { NavbarWrapper } from "../../styles";
 export default function Header() {
   const location = useLocation();
   return (
     <NavbarWrapper>
-      <nav data-aos="fade-down" className="navbar navbar-expand-lg navbar-light">
+      <nav
+        data-aos="fade-down"
+        className="navbar navbar-expand-lg navbar-light"
+      >
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">
-            <h3 className="navbar-brand text-white" >
-              Karkaz
-            </h3>
+            <h3 className="navbar-brand text-white">Каркас</h3>
 
             <button
               className="navbar-toggler bg-white"
@@ -35,7 +36,7 @@ export default function Header() {
                     aria-current="page"
                     href="#"
                   >
-                    Home
+                    Главная
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -44,7 +45,7 @@ export default function Header() {
                     className="nav-link text-white"
                     href="#"
                   >
-                    About
+                    О компании
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -53,7 +54,7 @@ export default function Header() {
                     className="nav-link text-white"
                     href="#"
                   >
-                    Colleagues
+                    Kоллеги
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -62,7 +63,7 @@ export default function Header() {
                     className="nav-link text-white"
                     href="#"
                   >
-                    Projects
+                    Проекты
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -73,22 +74,9 @@ export default function Header() {
                     tabindex="-1"
                     aria-disabled="true"
                   >
-                    Contact
+                    Контакт
                   </NavLink>
                 </li>
-                {/* <li className="nav-item">
-                <button className="btn btn-success p-1 ps-2 pe-2">
-                  <NavLink
-                    to={"signup"}
-                    className="nav-link text-white"
-                    href="#"
-                    tabindex="-1"
-                    aria-disabled="true"
-                  >
-                   Login
-                  </NavLink>
-                </button>
-              </li> */}
               </ul>
             </div>
           </div>

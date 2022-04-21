@@ -4,9 +4,13 @@ export const NavbarWrapper = styled.div`
   a {
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease;
+    border-radius: 5px 5px 0 0 ;
     :hover {
       border-bottom: 1px solid white;
     }
+  }
+  .active{
+    color: var(--bs-info);
   }
 `;
 export const Container = styled.div`
@@ -81,14 +85,25 @@ export const ImgContainer = styled.div`
 `;
 
 export const Sidebar = styled.div`
-
   .menuItem {
-    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.2);
-    border-radius: 10px 40px 10px 40px;
-    li {
-      a {
-        font-size: 17px !important;
-      }
+    font-size: 12px;
+    align-items: center;
+    color: white;
+    padding-left: 10px;
+    svg{
+      margin-right: 5px;
     }
+  }
+`;
+export const AddProductWrapper = styled.div`
+  input {
+    background: none !important;
+    color: white !important;
+  }
+`;
+export const CategoryWrapper = styled.div`
+  input {
+    background: none !important;
+    color: white !important;
   }
 `;

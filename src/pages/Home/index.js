@@ -19,9 +19,9 @@ export default function Home() {
           data-aos-duration="1500"
           className="d-flex justify-content-center text-center  flex-column col-12 col-lg-6 col-xl-5 col-md-6 "
         >
-          <h1 className="w-100 display-3 pt-sm-3">
+          <h2 className="w-100 display-5 pt-sm-3">
             Javohir <br /> Toshmurodov
-          </h1>
+          </h2>
 
           <p>
             Основной вид деятельности : Ремонт - строительные монтажные работы,

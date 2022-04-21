@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import { Routes, Route, Navigate, NavLink } from "react-router-dom";
 import About from "./pages/About";
 import Colleagues from "./pages/Colleagues";
-import Contact from "./pages/ContactUs";
+import ContactUs from "./pages/ContactUs";
 import Projects from "./pages/Projects";
 import { Container } from "./styles";
 import Products from "./pages/Products";
@@ -23,14 +23,13 @@ export default function App() {
   return (
     <Container>
       <Header />
-      <NavLink to={"/admin"}>Admin</NavLink>
       <Routes>
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
         <Route path="colleagues" element={<Colleagues />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact" element={<ContactUs />} />
         <Route path="projects" element={<Projects />} />
         <Route path="login" element={<Signup />} />
         <Route path="signin" element={<SignIn />} />
