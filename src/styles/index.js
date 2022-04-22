@@ -82,7 +82,7 @@ export const CardOfColleague = styled.div`
   }
 `;
 export const AboutCardWrapper = styled.div`
-  :nth-child(2) {
+  :nth-child(odd) {
     flex-direction: row-reverse;
   }
 `;

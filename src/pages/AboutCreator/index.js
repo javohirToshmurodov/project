@@ -11,7 +11,7 @@ export default function AboutCreator() {
           </h3>
           {/* <hr /> */}
           <p className="mt-5" data-aos="fade-right" data-aos-duration="900">
-            <img data-aos="zoom-in" data-aos-duration="900" className="w-50" align="right" src={Creator} alt="creator" />
+            <img data-aos="zoom-in" data-aos-duration="900" className="w-50 m-2" align="right" src={Creator} alt="creator" />
             Уважаемый посетитель! Добро пожаловать на нашу виртуальную
             территорию!
           </p>
