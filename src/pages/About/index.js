@@ -3,7 +3,7 @@ import React from "react";
 export default function ABout() {
   return (
     <div className="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9 offset-1 text-white mt-3">
-      <h3 data-aos="fade-down" data-aos-duration="500" className="mb-3 mt-4">
+      <h3 data-aos="fade-down" data-aos-duration="500" className="mb-3 mt-4 fw-bold">
         О компании
       </h3>
       <p

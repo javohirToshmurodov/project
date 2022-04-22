@@ -18,6 +18,7 @@ import Colleges from "./pages/Admin/Colleges";
 import Project from "./pages/Admin/Projects";
 import Contacts from "./pages/Admin/Contacts";
 import ProductTable from "./pages/Admin/ProductTable";
+import AboutCreator from "./pages/AboutCreator";
 export default function App() {
   const navigate = useNavigate();
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="aboutcreator" element={<AboutCreator />} />
         <Route path="products" element={<Products />} />
         <Route path="colleagues" element={<Colleagues />} />
         <Route path="contact" element={<ContactUs />} />

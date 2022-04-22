@@ -6,7 +6,7 @@ export default function ColleaguesCard() {
   return (
     <>
       {colleagues.map((item, index) => (
-        <div className="col-xl-4 col-lg-4 col-md-6 col-12" key={index}>
+        <div className="col-xl-3 col-lg-4 col-md-6 col-12" key={index}>
           <CardOfColleague
             className="text-white pb-3"
             data-aos="fade-up"
@@ -14,11 +14,10 @@ export default function ColleaguesCard() {
           >
             <img className="mb-3 img-fluid" src={item.image} alt="" />
             <div className="px-2">
-              <h3>{item.fullName}</h3>
-              <h5>
+              <h5>{item.fullName}</h5>
+              <h6>
                 <b>{item.position}</b>{" "}
-              </h5>
-              <i>{item.descrption}</i>
+              </h6>
             </div>
           </CardOfColleague>
         </div>

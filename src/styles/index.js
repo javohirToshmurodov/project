@@ -1,16 +1,33 @@
 import styled from "styled-components";
 
 export const NavbarWrapper = styled.div`
+  .active {
+    background-color: white;
+    color: #1d353d !important;
+  }
+
   a {
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
-    border-radius: 5px 5px 0 0 ;
+    /* font-weight: bold; */
+    transition: all 0.3s linear;
     font-size: 14px;
     :hover {
-      border-bottom: 1px solid white;
+      background-color: white;
+      color: #1d353d !important;
     }
   }
-  .active{
+  .company{
+    opacity: 0;
+    transition: .4s;
+  }
+  .father {
+    :hover {
+      /* background: red; */
+      .company {
+        opacity: 1;
+      }
+    }
+  }
+  .active {
     color: var(--bs-info);
   }
 `;
@@ -55,16 +72,16 @@ export const CardOfColleague = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
-  box-shadow: 0 10px 5px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   overflow: hidden;
   img {
-    max-height: 250px;
+    max-height: 230px;
     object-fit: cover;
     width: 100%;
   }
 `;
-export const aboutCardWrapper = styled.div`
+export const AboutCardWrapper = styled.div`
   :nth-child(2) {
     flex-direction: row-reverse;
   }
@@ -91,7 +108,7 @@ export const Sidebar = styled.div`
     align-items: center;
     color: white;
     padding-left: 10px;
-    svg{
+    svg {
       margin-right: 5px;
     }
   }
@@ -108,3 +125,25 @@ export const CategoryWrapper = styled.div`
     color: white !important;
   }
 `;
+export const CompanyAboutWrapper = styled.div`
+  /* opacity: 0; */
+  width: 300px;
+  background: rgba(111, 111, 111);
+  margin-bottom: -20px;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  a {
+    font-size: 11px !important;
+  }
+`;
+export const AboutCreatorWrapper = styled.div`
+    p{
+      font-size: 20px;
+      line-height: 2;
+      word-spacing: 5px;
+    }
+`
+export const ContactWrapper = styled.div`
+  min-height: 400px;
+`

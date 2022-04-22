@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { NavbarWrapper } from "../../styles";
+import CompanyAbout from "../companyAbout";
 export default function Header() {
   const location = useLocation();
   return (
@@ -39,13 +40,18 @@ export default function Header() {
                     Главная
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item position-relative father">
                   <NavLink
                     to={"/about"}
-                    className="nav-link text-white"
+                    className="nav-link text-white "
                     href="#"
                   >
                     О компании
+                    <ul className="company">
+                      <li>
+                        <CompanyAbout />
+                      </li>
+                    </ul>
                   </NavLink>
                 </li>
                 <li className="nav-item">
