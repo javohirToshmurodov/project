@@ -29,20 +29,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  /* overflow-x: hidden; */
-  background: #0f2027; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #2c5364,
-    #203a43,
-    #0f2027
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #2c5364,
-    #203a43,
-    #0f2027
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: black !important;
+  background: #eee !important;
 }
 
 /* global style */
@@ -55,24 +43,23 @@ ul li {
   list-style-type: none;
   margin: 0 !important;
 }
-ul{
+ul {
   margin-left: -30px;
 }
 
 h3 {
   cursor: pointer;
 }
-textarea{
+textarea {
   background: none !important;
-  color: white !important;
 }
-::placeholder{
-  color: white !important;
+::placeholder {
+  color:#707070 !important;
 }
-table tr td{
- word-wrap: break-word !important;
+table tr td {
+  word-wrap: break-word !important;
 }
-.line-height{
+.line-height {
   line-height: 2;
   word-spacing: 5px;
 }

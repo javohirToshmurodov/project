@@ -8,7 +8,7 @@ export default function ColleaguesCard() {
       {colleagues.map((item, index) => (
         <div className="col-xl-3 col-lg-4 col-md-6 col-12" key={index}>
           <CardOfColleague
-            className="text-white pb-3"
+            className="text-dark pb-3"
             data-aos="fade-up"
             data-aos-duration="1500"
           >

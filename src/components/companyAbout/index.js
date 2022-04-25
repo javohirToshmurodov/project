@@ -7,7 +7,7 @@ export default function CompanyAbout() {
     <CompanyAboutWrapper>
           <NavLink
             to={"/aboutcreator"}
-            className="nav-link  text-white"
+            className="nav-link  text-dark"
             aria-current="page"
             href="#"
           >

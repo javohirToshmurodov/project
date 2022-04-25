@@ -10,7 +10,7 @@ export default function ContactUs() {
   //   borderRadius: "5px",
   // };
   return (
-    <div className="row mt-3 text-white justify-content-center gap-3 align-items-center">
+    <div className="row mt-3 text-dark justify-content-center gap-3 align-items-center">
       <div className=" mt-3 col-xl-4 col-lg-6 col-md-6 col-sm-8 col-12">
         <ContactWrapper className="py-3">
           <h5 className="text-center">Contact us</h5>
@@ -20,6 +20,7 @@ export default function ContactUs() {
                 Имя
               </label>
               <input
+                required
                 type="text"
                 id="contactName"
                 placeholder="имя..."
@@ -31,6 +32,7 @@ export default function ContactUs() {
                 Эмаил
               </label>
               <input
+                required
                 type="email"
                 id="contactEmail"
                 placeholder="введите действителний адрес электронной почти"
@@ -42,6 +44,7 @@ export default function ContactUs() {
                 Cообщение
               </label>
               <textarea
+                required
                 name=""
                 id="contactMessage"
                 className="form-control"
@@ -51,7 +54,7 @@ export default function ContactUs() {
               ></textarea>
             </div>
             <div className="text-end">
-              <button className="btn btn-warning">Submit</button>
+              <button className="btn btn-dark">Submit</button>
             </div>
           </form>
         </ContactWrapper>
@@ -59,15 +62,27 @@ export default function ContactUs() {
       <div className="mt-3 col-xl-4 col-lg-6 col-md-6 col-sm-8 col-12 pb-5">
         <Connections>
           <ul>
-            <li data-aos='zoom-in' data-aos-duration="500" className="contactStyle">
+            <li
+              data-aos="zoom-in"
+              data-aos-duration="500"
+              className="contactStyle"
+            >
               <FontAwesomeIcon className="me-2" icon={faTelegram} />
               <i> @karkasjbi</i>
             </li>
-            <li data-aos='zoom-in' data-aos-duration="800" className="contactStyle">
+            <li
+              data-aos="zoom-in"
+              data-aos-duration="800"
+              className="contactStyle"
+            >
               <FontAwesomeIcon className="me-2" icon={faEnvelope} />
-             <i> karkasjbi@gmail.com</i>
+              <i> karkasjbi@gmail.com</i>
             </li>
-            <li data-aos='zoom-in' data-aos-duration="600" className="contactStyle">
+            <li
+              data-aos="zoom-in"
+              data-aos-duration="600"
+              className="contactStyle"
+            >
               <FontAwesomeIcon className="me-2" icon={faPhoneSquare} />
               <i>(71) 230-03-04</i>
             </li>

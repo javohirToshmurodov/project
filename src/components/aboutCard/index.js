@@ -15,9 +15,9 @@ export default function aboutCard() {
             data-aos="fade-down-right"
             data-aos-duration="1400"
           >
-            <Perspective className="d-flex justify-content-center ">
-              <img className="img-fluid " src={item.img} alt="" />
-            </Perspective>
+            {/* <Perspective className="d-flex justify-content-center "> */}
+              <img className="img-fluid roundedImage" src={item.img} alt="" />
+            {/* </Perspective> */}
           </div>
           <div
             className="col-xl-5 col-lg-5 col-md-5 col-sm-9 col-9"

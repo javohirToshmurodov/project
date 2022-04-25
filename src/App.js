@@ -20,7 +20,6 @@ import Contacts from "./pages/Admin/Contacts";
 import ProductTable from "./pages/Admin/ProductTable";
 import AboutCreator from "./pages/AboutCreator";
 export default function App() {
-  const navigate = useNavigate();
   return (
     <Container>
       <Header />

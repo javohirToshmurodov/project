@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const NavbarWrapper = styled.div`
   .active {
-    background-color: white;
-    color: #1d353d !important;
+    background-color: yellow;
+    color: #000;
   }
 
   a {
@@ -11,8 +11,8 @@ export const NavbarWrapper = styled.div`
     transition: all 0.3s linear;
     font-size: 14px;
     :hover {
-      background-color: white;
-      color: #1d353d !important;
+      background-color: yellow;
+      color: #000;
     }
   }
   .company {
@@ -28,7 +28,8 @@ export const NavbarWrapper = styled.div`
     }
   }
   .active {
-    color: var(--bs-info);
+    /* color: var(--bs-info); */
+    background: yellow !important;
   }
 `;
 export const Container = styled.div`
@@ -72,7 +73,9 @@ export const CardOfColleague = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
-  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.23);
+  backdrop-filter: blur(1.9px);
+  border: 1px solid rgba(31, 32, 33, 0.17);
   border-radius: 8px;
   overflow: hidden;
   img {
@@ -84,6 +87,9 @@ export const CardOfColleague = styled.div`
 export const AboutCardWrapper = styled.div`
   :nth-child(odd) {
     flex-direction: row-reverse;
+  }
+  .roundedImage {
+    border-radius: 10px;
   }
 `;
 export const Perspective = styled.div`
@@ -97,8 +103,6 @@ export const ImgContainer = styled.div`
   align-items: center;
   overflow: hidden;
   img {
-    /* height: 90%; */
-    object-fit: cover;
   }
 `;
 
@@ -143,35 +147,48 @@ export const AboutCreatorWrapper = styled.div`
     line-height: 2;
     word-spacing: 5px;
     text-align: justify;
-    img{
+    img {
       max-width: 100%;
       height: auto;
       width: 550px;
+    }
   }
-  }
- 
 `;
 export const ContactWrapper = styled.div`
   min-height: 340px;
   padding: 0 25px;
-background: rgba(255, 255, 255, 0.18);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.7px);
--webkit-backdrop-filter: blur(3.7px);
-input{
-  background: none;
-  color: white !important;
-  :focus{
+  /* background-color: rgba(214, 255, 10, 0.31); */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.23);
+  backdrop-filter: blur(1.9px);
+  border: 1px solid rgba(31, 32, 33, 0.17);
+  input {
     background: none;
+    /* color: white !important; */
+    :focus {
+      background: none;
+    }
   }
-}
 `;
 export const Connections = styled.div`
-
-    .contactStyle{
-      line-height: 2;
-      font-size: 30px;
-     
+  .contactStyle {
+    line-height: 2;
+    font-size: 30px;
+  }
+`;
+export const ProductCardWrapper = styled.div`
+  .imageWrapper {
+    width: 25% !important;
+    img {
+      object-fit: cover;
+      /* max-height: 200px; */
+      min-height: 150px;
+      height: 200px;
+      width: 100%;
     }
-`
+  }
+  .productName{
+    color:#707070;
+  }
+`;

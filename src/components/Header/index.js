@@ -13,7 +13,7 @@ export default function Header() {
       >
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">
-            <h3 onClick={()=>navigate("/")} className="navbar-brand text-white">Каркас</h3>
+            <h3 onClick={()=>navigate("/")} className="navbar-brand">Каркас</h3>
 
             <button
               className="navbar-toggler bg-white"
@@ -34,7 +34,7 @@ export default function Header() {
                 <li className="nav-item">
                   <NavLink
                     to={"/"}
-                    className="nav-link  text-white"
+                    className="nav-link  text-dark"
                     aria-current="page"
                     href="#"
                   >
@@ -44,7 +44,7 @@ export default function Header() {
                 <li className="nav-item position-relative father">
                   <NavLink
                     to={"/about"}
-                    className="nav-link text-white "
+                    className="nav-link text-dark "
                     href="#"
                   >
                     О компании
@@ -58,7 +58,7 @@ export default function Header() {
                 <li className="nav-item">
                   <NavLink
                     to={"/colleagues"}
-                    className="nav-link text-white"
+                    className="nav-link text-dark"
                     href="#"
                   >
                     Kоллеги
@@ -67,7 +67,7 @@ export default function Header() {
                 <li className="nav-item">
                   <NavLink
                     to={"/projects"}
-                    className="nav-link text-white"
+                    className="nav-link text-dark"
                     href="#"
                   >
                     Проекты
@@ -75,8 +75,17 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
+                    to={"/products"}
+                    className="nav-link text-dark"
+                    href="#"
+                  >
+                    Продукты
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
                     to={"contact"}
-                    className="nav-link  text-white"
+                    className="nav-link  text-dark"
                     href="#"
                     tabindex="-1"
                     aria-disabled="true"

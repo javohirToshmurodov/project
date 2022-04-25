@@ -3,7 +3,7 @@ import { HomeWrapper, ImgContainer } from "../../styles";
 import OwnerPng from "../../assets/owner.png";
 export default function Home() {
   return (
-    <HomeWrapper className="col-12 d-flex  text-white">
+    <HomeWrapper className="col-12 d-flex  text-dark">
       <div className="row mt-2">
         <div
           data-aos="zoom-in"
@@ -19,8 +19,8 @@ export default function Home() {
           data-aos-duration="1500"
           className="d-flex pb-3 justify-content-center text-center  flex-column col-12 col-lg-6 col-xl-5 col-md-6 "
         >
-          <h2 className="w-100 display-5 pt-sm-3">
-          Мамаев Чориёр  <br /> Корабоевич
+          <h2 className="w-100 display-5 pt-sm-3 ">
+            KARKAS JBI <br /> TRADE
           </h2>
 
           <p>
