@@ -4,14 +4,14 @@ import { AboutCreatorWrapper } from "../../styles";
 export default function AboutCreator() {
   return (
     <div className="row text-white mt-5 px-5">
-      <div className="col-xl-10 offset-1 col-lg-10 col-md-8 col-12">
+      <div className="col-xl-10 offset-1 col-lg-10 col-md-8 col-sm-10 col-12">
         <AboutCreatorWrapper>
           <h3 data-aos="fade-down" data-aos-duration="500" className="fw-bold">
             Приветственное слово руководителя компании
           </h3>
           {/* <hr /> */}
           <p className="mt-5" data-aos="fade-right" data-aos-duration="900">
-            <img data-aos="zoom-in" data-aos-duration="900" className="w-50 m-2" align="right" src={Creator} alt="creator" />
+            <img data-aos="zoom-in" data-aos-duration="900" className="m-2" align="right" src={Creator} alt="creator" />
             Уважаемый посетитель! Добро пожаловать на нашу виртуальную
             территорию!
           </p>

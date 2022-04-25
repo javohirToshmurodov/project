@@ -15,9 +15,9 @@ export const NavbarWrapper = styled.div`
       color: #1d353d !important;
     }
   }
-  .company{
+  .company {
     opacity: 0;
-    transition: .4s;
+    transition: 0.4s;
   }
   .father {
     :hover {
@@ -138,12 +138,40 @@ export const CompanyAboutWrapper = styled.div`
   }
 `;
 export const AboutCreatorWrapper = styled.div`
-    p{
-      font-size: 20px;
-      line-height: 2;
-      word-spacing: 5px;
-    }
-`
+  p {
+    font-size: 20px;
+    line-height: 2;
+    word-spacing: 5px;
+    text-align: justify;
+    img{
+      max-width: 100%;
+      height: auto;
+      width: 550px;
+  }
+  }
+ 
+`;
 export const ContactWrapper = styled.div`
-  min-height: 400px;
+  min-height: 340px;
+  padding: 0 25px;
+background: rgba(255, 255, 255, 0.18);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.7px);
+-webkit-backdrop-filter: blur(3.7px);
+input{
+  background: none;
+  color: white !important;
+  :focus{
+    background: none;
+  }
+}
+`;
+export const Connections = styled.div`
+
+    .contactStyle{
+      line-height: 2;
+      font-size: 30px;
+     
+    }
 `

@@ -17,10 +17,10 @@ export default function Home() {
         <div
           data-aos="fade-right"
           data-aos-duration="1500"
-          className="d-flex justify-content-center text-center  flex-column col-12 col-lg-6 col-xl-5 col-md-6 "
+          className="d-flex pb-3 justify-content-center text-center  flex-column col-12 col-lg-6 col-xl-5 col-md-6 "
         >
           <h2 className="w-100 display-5 pt-sm-3">
-            Javohir <br /> Toshmurodov
+          Мамаев Чориёр  <br /> Корабоевич
           </h2>
 
           <p>

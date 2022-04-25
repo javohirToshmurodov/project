@@ -1,9 +1,10 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { NavbarWrapper } from "../../styles";
 import CompanyAbout from "../companyAbout";
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate()
   return (
     <NavbarWrapper>
       <nav
@@ -12,7 +13,7 @@ export default function Header() {
       >
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">
-            <h3 className="navbar-brand text-white">Каркас</h3>
+            <h3 onClick={()=>navigate("/")} className="navbar-brand text-white">Каркас</h3>
 
             <button
               className="navbar-toggler bg-white"
