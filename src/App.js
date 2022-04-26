@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
-import { Routes, Route, Navigate, NavLink } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import About from "./pages/About";
 import Colleagues from "./pages/Colleagues";
 import ContactUs from "./pages/ContactUs";
@@ -8,8 +8,6 @@ import Projects from "./pages/Projects";
 import { Container } from "./styles";
 import Products from "./pages/Products";
 import Signup from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import { useNavigate } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Product from "./pages/Admin/Product";
@@ -19,6 +17,7 @@ import Project from "./pages/Admin/Projects";
 import Contacts from "./pages/Admin/Contacts";
 import ProductTable from "./pages/Admin/ProductTable";
 import AboutCreator from "./pages/AboutCreator";
+import Mission from "./pages/Mission";
 export default function App() {
   return (
     <Container>
@@ -30,10 +29,10 @@ export default function App() {
         <Route path="aboutcreator" element={<AboutCreator />} />
         <Route path="products" element={<Products />} />
         <Route path="colleagues" element={<Colleagues />} />
+        <Route path="mission" element={<Mission />} />
         <Route path="contact" element={<ContactUs />} />
         <Route path="projects" element={<Projects />} />
         <Route path="login" element={<Signup />} />
-        <Route path="signin" element={<SignIn />} />
         <Route path="admin" element={<Admin />}>
           <Route path="product" element={<Product />} />
           <Route path="category" element={<Category />} />

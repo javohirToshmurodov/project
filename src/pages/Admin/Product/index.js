@@ -5,7 +5,7 @@ export default function Product() {
   return (
     <div className="row  align-items-center">
       <div className="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-        <AddProductWrapper className="text-white">
+        <AddProductWrapper className="text-dark">
           <h4 className="mb-4">Add Product</h4>
 
           <form action="#" data-aos="zoom-in">
@@ -39,7 +39,20 @@ export default function Product() {
                 name=""
                 id="descUz"
                 cols="30"
-                rows="8"
+                rows="4"
+                placeholder="about product . . ."
+                className="form-control"
+              ></textarea>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="descRu" className="form-label">
+                Description RU
+              </label>
+              <textarea
+                name=""
+                id="descRu"
+                cols="30"
+                rows="4"
                 placeholder="about product . . ."
                 className="form-control"
               ></textarea>

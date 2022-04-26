@@ -54,7 +54,7 @@ textarea {
   background: none !important;
 }
 ::placeholder {
-  color:#707070 !important;
+  color: #707070 !important;
 }
 table tr td {
   word-wrap: break-word !important;
@@ -62,4 +62,8 @@ table tr td {
 .line-height {
   line-height: 2;
   word-spacing: 5px;
+}
+.backgroundColor {
+  /* background-image: linear-gradient(135deg, #603813 10%, #b29f94 100%) !important; */
+  /* background-image: linear-gradient(135deg, #ffe259 10%, #ffa751 100%); */
 }

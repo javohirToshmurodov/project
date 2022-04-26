@@ -3,7 +3,7 @@ import Form from '../../../components/Form'
 
 export default function Category() {
   return (
-    <div className='text-white'>
+    <div>
      
       <Form/>
     </div>

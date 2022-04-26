@@ -57,6 +57,15 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <NavLink
+                    to={"/mission"}
+                    className="nav-link text-dark"
+                    href="#"
+                  >
+                    Миссия
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
                     to={"/colleagues"}
                     className="nav-link text-dark"
                     href="#"

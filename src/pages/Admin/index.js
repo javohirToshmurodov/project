@@ -14,14 +14,14 @@ import { Sidebar } from "../../styles";
 export default function Admin() {
   const setActive = ({ isActive }) => (isActive ? "active-link" : "");
   return (
-    <div className="row mt-3  justify-content-between">
+    <div className="row mt-3   justify-content-between">
       <div className="col-xl-2 col-lg-2 col-sm-4 col-12">
         <Sidebar className="pt-4">
           <p
-            className="text-white fw-bold ps-3"
+            className="text-dark fw-bold ps-3"
             data-aos="fade-down"
             data-aos-duration="1400"
-          >
+          >12
             Dashboard
           </p>
 
@@ -34,7 +34,7 @@ export default function Admin() {
               <FontAwesomeIcon icon={faCartShopping} />
               <NavLink
                 style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "white",
+                  color: isActive ? "var(--bs-yellow)" : "black",
                 })}
                 to="/admin/product"
               >
@@ -49,7 +49,7 @@ export default function Admin() {
               <FontAwesomeIcon icon={faListAlt} />
               <NavLink
                 style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "white",
+                  color: isActive ? "var(--bs-yellow)" : "black",
                 })}
                 to="/admin/project"
               >
@@ -64,7 +64,7 @@ export default function Admin() {
               <FontAwesomeIcon icon={faUser} />
               <NavLink
                 style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "white",
+                  color: isActive ? "var(--bs-yellow)" : "black",
                 })}
                 to="/admin/colleges"
               >
@@ -79,7 +79,7 @@ export default function Admin() {
               <FontAwesomeIcon icon={faBars} />
               <NavLink
                 style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "white",
+                  color: isActive ? "var(--bs-yellow)" : "black",
                 })}
                 to="/admin/category"
               >
@@ -94,7 +94,7 @@ export default function Admin() {
               <FontAwesomeIcon icon={faPhone} />
               <NavLink
                 style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "white",
+                  color: isActive ? "var(--bs-yellow)" : "black",
                 })}
                 to="/admin/contacts"
               >
@@ -109,7 +109,7 @@ export default function Admin() {
               <FontAwesomeIcon icon={faTableList} />
               <NavLink
                 style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "white",
+                  color: isActive ? "var(--bs-yellow)" : "black",
                 })}
                 to="/admin/producttable"
               >
@@ -119,7 +119,7 @@ export default function Admin() {
           </ul>
         </Sidebar>
       </div>
-      <div className="col-xl-9 col-lg-9 col-md-8  col-12">
+      <div className="col-xl-9 col-lg-9 col-md-8  col-12 backgroundColor">
         <Outlet />
       </div>
     </div>

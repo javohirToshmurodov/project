@@ -7,7 +7,7 @@ export default function ProductCard() {
   return (
     <>
       {products.map((e, i) => (
-        <ProductCardWrapper data-aos="fade-left" className="d-flex mb-4 shadow rounded overflow-hidden">
+        <ProductCardWrapper key={i} data-aos="fade-left" className="d-flex mb-4 shadow rounded overflow-hidden">
           <div className="imageWrapper">
             <img className="img-fluid" src={e.image} alt="" />
           </div>

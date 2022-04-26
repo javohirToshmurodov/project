@@ -39,7 +39,6 @@ export const SignUpWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   flex-direction: column;
   padding: 50px;
   position: absolute;
@@ -49,17 +48,14 @@ export const SignUpWrapper = styled.div`
   background-color: transparent;
   padding: 25px;
   border-radius: 20px;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px 2px rgba(0,0,0,0.2);
   transition: 0.3s;
   :hover {
-    box-shadow: 0 0 30px 4px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 30px 4px rgba(0,0,0,0.3);
   }
   input {
-    caret-color: white;
-    color: white !important;
     background: transparent !important;
     ::placeholder {
-      color: white;
       letter-spacing: 3px;
       text-transform: lowercase;
     }
@@ -108,9 +104,8 @@ export const ImgContainer = styled.div`
 
 export const Sidebar = styled.div`
   .menuItem {
-    font-size: 12px;
+    font-size: 13px;
     align-items: center;
-    color: white;
     padding-left: 10px;
     svg {
       margin-right: 5px;
@@ -120,13 +115,11 @@ export const Sidebar = styled.div`
 export const AddProductWrapper = styled.div`
   input {
     background: none !important;
-    color: white !important;
   }
 `;
 export const CategoryWrapper = styled.div`
   input {
     background: none !important;
-    color: white !important;
   }
 `;
 export const CompanyAboutWrapper = styled.div`

@@ -11,7 +11,7 @@ export default function Home() {
           className="col-12 col-lg-6 col-xl-6 col-md-6   d-flex justify-content-center"
         >
           <ImgContainer className="pb-5">
-            <img className="img-fluid" src={OwnerPng} alt="javohir" />
+            <img width={450} className="img-fluid" src={OwnerPng} alt="javohir" />
           </ImgContainer>
         </div>
         <div

@@ -4,7 +4,7 @@ import { AboutCreatorWrapper } from "../../styles";
 export default function AboutCreator() {
   return (
     <div className="row text-dark mt-5 px-5">
-      <div className="col-xl-10 offset-1 col-lg-10 col-md-8 col-sm-10 col-12">
+      <div className="col-xl-10 offset-1 col-lg-10 col-md-10 col-sm-10 col-12">
         <AboutCreatorWrapper>
           <h3 data-aos="fade-down" data-aos-duration="500" className="fw-bold">
             Приветственное слово руководителя компании
