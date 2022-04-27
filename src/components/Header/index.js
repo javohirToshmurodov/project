@@ -9,7 +9,7 @@ export default function Header() {
     <NavbarWrapper>
       <nav
         data-aos="fade-down"
-        className="navbar navbar-expand-lg navbar-light"
+        className="navbar navbar-expand-lg navbar-light   "
       >
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">

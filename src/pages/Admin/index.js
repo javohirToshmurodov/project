@@ -14,7 +14,7 @@ import { Sidebar } from "../../styles";
 export default function Admin() {
   const setActive = ({ isActive }) => (isActive ? "active-link" : "");
   return (
-    <div className="row mt-3   justify-content-between">
+    <div className="row mt-3 justify-content-between">
       <div className="col-xl-2 col-lg-2 col-sm-4 col-12">
         <Sidebar className="pt-4">
           <p
