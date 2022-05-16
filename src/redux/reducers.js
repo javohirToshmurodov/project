@@ -5,6 +5,10 @@ const initialState = {
   products: [],
   loading: false,
   projects: [],
+  admin:{
+    email:"karkasjbi@gmail.com",
+    password:123456
+  }
 };
 
 const collegesReducers = (state = initialState, action) => {
