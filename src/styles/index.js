@@ -81,6 +81,10 @@ export const CardOfColleague = styled.div`
   }
 `;
 export const AboutCardWrapper = styled.div`
+img{
+  height: 300px;
+  max-height: 350px;
+}
   :nth-child(odd) {
     flex-direction: row-reverse;
   }

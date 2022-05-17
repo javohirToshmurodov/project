@@ -1,56 +1,81 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { SignUpWrapper } from "../../styles";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Admin from "../Admin";
+import AuthContext from "./AuthProvider";
 export default function Signup() {
-  const inputRef = useRef();
+  const usernameRef = useRef();
   const navigate = useNavigate();
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
+  const { setAuth } = useContext(AuthContext);
+  useEffect(() => {
+    // usernameRef.current.focus();
+  }, []);
 
-  function handleSubmit() {
-    console.log(inputRef.current.value);
-    return inputRef.current.value !== "" ? navigate("/admin") : null;
-  }
+  useEffect(() => {
+    setErrMsg("");
+  }, [user, password]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(user, password);
+    setSuccess(true);
+    setUser("");
+    setPassword("");
+  };
+
   return (
-    <SignUpWrapper className="col-md-6 col-sm-8 col-xs-8 col-lg-6 col-xl-4  col-8">
-      <h1 className="text-center"> Log in</h1>
-      <form action="#" className="w-100">
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            className="form-control"
-            placeholder="Username..."
-            required
-          />
-        </div>
+    <>
+      {success ? (
+        <Admin />
+      ) : (
+        <SignUpWrapper className="col-md-6 col-sm-8 col-xs-8 col-lg-6 col-xl-4  col-8">
+          <h1 className="text-center"> Log in</h1>
+          <form action="#" className="w-100" onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                className="form-control"
+                placeholder="Username..."
+                required
+                ref={usernameRef}
+                autoComplete="off"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+              />
+            </div>
 
-        <div className="mb-4">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            ref={inputRef}
-            type="password"
-            id="password"
-            minLength={6}
-            className="form-control"
-            required
-            placeholder="• • • • • • • • •"
-          />
-        </div>
-        <div className="text-end">
-          <button
-            onClick={handleSubmit}
-            type="submit"
-            className="submitBtn btn btn-success"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </SignUpWrapper>
+            <div className="mb-4">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                minLength={6}
+                className="form-control"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="• • • • • • • • •"
+              />
+            </div>
+            <div className="text-end">
+              <button type="submit" className="submitBtn btn btn-success">
+                Submit
+              </button>
+            </div>
+          </form>
+        </SignUpWrapper>
+      )}
+    </>
   );
 }

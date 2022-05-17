@@ -1,30 +1,34 @@
-import React, { useEffect } from "react";
-import { products } from "../../data";
+import React, { useEffect, useState } from "react";
 import { ProductCardWrapper } from "../../styles";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { loadProducts } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {  loadProducts } from "../../redux/actions";
 export default function ProductCard() {
   const dispatch = useDispatch();
+  const [produkt, setProdukt] = useState([]);
+
+  const products = useSelector((state) => state.productData.products.body);
+  console.log("setproducts++++++", products);
   useEffect(() => {
     dispatch(loadProducts());
+    setProdukt(products);
   }, []);
   const navigate = useNavigate();
   return (
     <>
-      {products.map((e, i) => (
+      {products?.map((e, i) => (
         <ProductCardWrapper
           key={i}
           data-aos="fade-left"
           className="d-flex mb-4 shadow rounded overflow-hidden"
         >
           <div className="imageWrapper">
-            <img className="img-fluid" src={e.image} alt="" />
+            <img className="img-fluid" src={e.url} alt="" />
           </div>
           <div className="w-75">
             <div className="p-3">
               <h5 className="text-sm-small text-small">{e.description}</h5>
-              <h3 className="productName">- {e.productName}</h3>
+              <h3 className="productName">- {e.name}</h3>
             </div>
             <div className="text-end pe-3">
               <button

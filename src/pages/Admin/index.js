@@ -21,7 +21,7 @@ export default function Admin() {
             className="text-dark fw-bold ps-3"
             data-aos="fade-down"
             data-aos-duration="1400"
-          >12
+          >
             Dashboard
           </p>
 
