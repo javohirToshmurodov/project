@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import { Routes, Route, Navigate } from "react-router-dom";
 import About from "./pages/About";
@@ -18,7 +18,18 @@ import Contacts from "./pages/Admin/Contacts";
 import ProductTable from "./pages/Admin/ProductTable";
 import AboutCreator from "./pages/AboutCreator";
 import Mission from "./pages/Mission";
+import { useDispatch } from "react-redux";
+import { loadColleges, loadProducts, loadProjects } from "./redux/actions";
+
+
 export default function App() {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(loadProducts());
+    dispatch(loadColleges());
+    dispatch(loadProjects());
+  },[])
+  
   return (
     <Container>
       <Header />

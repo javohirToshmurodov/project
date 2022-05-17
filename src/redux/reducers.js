@@ -6,8 +6,8 @@ const initialState = {
   loading: false,
   projects: [],
   admin: {
-    email: "karkasjbi@gmail.com",
-    password: 123456,
+    username: "",
+    password: "",
   },
 };
 
@@ -63,21 +63,34 @@ export const projectsReducers = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
-        loading:false
+        loading: false,
       };
     }
-    case types.DELETE_PROJECTS:{
-      return{
-        ...state
-      }
-    }
-    case types.POST_PROJECTS:{
+    case types.DELETE_PROJECTS: {
       return {
-        ...state
-      }
+        ...state,
+      };
+    }
+    case types.POST_PROJECTS: {
+      return {
+        ...state,
+      };
     }
     default:
-      return state
+      return state;
+  }
+};
+
+export const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.POST_USER: {
+      return {
+        ...state,
+        admin: action.payload,
+      };
+    }
+    default:
+      return state;
   }
 };
 export default collegesReducers;

@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Admin from "../Admin";
 import AuthContext from "./AuthProvider";
+import { accessToken } from "../../redux/actions";
+import axios from "axios";
 export default function Signup() {
   const usernameRef = useRef();
   const navigate = useNavigate();
@@ -12,6 +14,9 @@ export default function Signup() {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
   const { setAuth } = useContext(AuthContext);
+
+  // axios post user here
+
   useEffect(() => {
     // usernameRef.current.focus();
   }, []);
@@ -22,10 +27,32 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "/api/v1/auth/login",
+        JSON.stringify({ user, password }),
+        {
+          headers: {
+            Accept: "*/*",
+            Host:"karkasjbi.uz",
+            // username: `${user}`,
+            // password: `${password}`,
+          },
+          data:{
+            "username":"admin"
+          }
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response));
+      setSuccess(true);
+      setUser("");
+      setPassword("");
+    } catch (err) {
+      console.log(err);
+    }
     console.log(user, password);
-    setSuccess(true);
-    setUser("");
-    setPassword("");
   };
 
   return (

@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { about } from "../../data";
 import { loadProjects } from "../../redux/actions";
 import { AboutCardWrapper } from "../../styles";
 
 export default function AboutCard() {
-  const dispatch = useDispatch();
   const [project, setProject] = useState([]);
   const projects = useSelector((state) => state.projectData.projects.body);
   useEffect(() => {
-    dispatch(loadProjects());
-    console.log("useEffect project", projects);
+    setProject(projects);
   }, []);
 
   return (

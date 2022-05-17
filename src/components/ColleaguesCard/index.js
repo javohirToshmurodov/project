@@ -5,10 +5,7 @@ import { loadColleges } from "../../redux/actions";
 export default function ColleaguesCard() {
   const dispatch = useDispatch();
   const colleagues = useSelector((state) => state.data.colleges.body);
-  console.log("setcolleges", colleagues);
   useEffect(() => {
-    dispatch(loadColleges());
-    console.log("useEffect ishladi");
   }, []);
 
   return (

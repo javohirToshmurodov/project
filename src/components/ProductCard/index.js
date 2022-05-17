@@ -8,9 +8,8 @@ export default function ProductCard() {
   const [produkt, setProdukt] = useState([]);
 
   const products = useSelector((state) => state.productData.products.body);
-  console.log("setproducts++++++", products);
   useEffect(() => {
-    dispatch(loadProducts());
+   
     setProdukt(products);
   }, []);
   const navigate = useNavigate();

@@ -13,3 +13,5 @@ export const DELETE_PROJECTS = "DELETE_PROJECTS";
 export const GET_CATEGORY = "GET_CATEGORY";
 export const POST_CATEGORY = "POST_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
+// -------------------
+export const POST_USER = "POST_USER"

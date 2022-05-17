@@ -22,30 +22,29 @@ export const getProjects = (project) => ({
 // --------------------------
 
 // accesstoken
- export const accessToken =
+export const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM0MDc1MTR9.uHdOYqz8SNV3EYh4LWG4HYpgTH3cH-orA9GUgtXsgVg";
 // accesstoken
 
-  // colleges
+// colleges
 
-  export const loadColleges = () => {
-    return function (dispatch) {
-      axios
-        .get(`/api/v1/colleges/all`, {
-          headers: {
-            Authorization: `${accessToken}`,
-            Accept: "*/*",
-            "Accept-Language": "uz",
-          },
-        })
-        .then((res) => {
-          console.log("response", res.data.body);
-          dispatch(getColleges(res.data));
-        })
-        .catch((err) => console.log("xato", err));
-    };
+export const loadColleges = () => {
+  return function (dispatch) {
+    axios
+      .get(`/api/v1/colleges/all`, {
+        headers: {
+          Authorization: `${accessToken}`,
+          Accept: "*/*",
+          "Accept-Language": "uz",
+        },
+      })
+      .then((res) => {
+        console.log("response", res.data.body);
+        dispatch(getColleges(res.data));
+      })
+      .catch((err) => console.log("xato", err));
   };
-
+};
 
 // products
 export const loadProducts = () => {
@@ -53,7 +52,7 @@ export const loadProducts = () => {
     axios
       .get("/api/v1/product/all?categoryId=1", {
         headers: {
-          Authorization:`${accessToken}`,
+          Authorization: `${accessToken}`,
           Accept: "*/*",
           "Accept-Language": "uz",
         },
@@ -67,28 +66,28 @@ export const loadProducts = () => {
 };
 // products
 
-
 // projects
 
- export const loadProjects = ()=>{
-   return function(dispatch){
-     axios.get("/api/v1/project/all", {
-       headers:{
-        Authorization:`${accessToken}`,
-        Accept: "*/*",
-        "Accept-Language": "uz",
-       }
-     }).then((res)=>{
-       console.log("projects loaded = ", res.data.body);
-       dispatch(getProjects(res.data))
-     })
-     .catch((err)=>console.log("errrr", err))
-   }
- }
+export const loadProjects = () => {
+  return function (dispatch) {
+    axios
+      .get("/api/v1/project/all", {
+        headers: {
+          Authorization: `${accessToken}`,
+          Accept: "*/*",
+          "Accept-Language": "uz",
+        },
+      })
+      .then((res) => {
+        console.log("projects loaded = ", res.data.body);
+        dispatch(getProjects(res.data));
+      })
+      .catch((err) => console.log("errrr", err));
+  };
+};
+// ------------
 
-
-
-
+// Authentification
 
 
 
