@@ -31,26 +31,36 @@ export default function Signup() {
     try {
       const response = await axios.post(
         "/api/v1/auth/login",
-        JSON.stringify({ user, password }),
         {
           headers: {
             Accept: "*/*",
-            Host:"karkasjbi.uz",
-            // username: `${user}`,
-            // password: `${password}`,
+            Host: "karkasjbi.uz",
+            "Content-Type": "application/json",
           },
           data:{
-            "username":"admin"
+            "username":`${user}`,
+            "password":`${password}`
           }
         }
       );
       console.log(JSON.stringify(response?.data));
       console.log(JSON.stringify(response));
+      console.log("user -" , user);
+      console.log("password - ", password);
       setSuccess(true);
       setUser("");
       setPassword("");
     } catch (err) {
-      console.log(err);
+      if (!err?.response) {
+        setErrMsg("No server responses");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Missing username or password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("UnAuthorized");
+      } else {
+        setErrMsg("Login Failed");
+      }
+      console.log("xato chiqdi", err);
     }
     console.log(user, password);
   };
@@ -58,7 +68,9 @@ export default function Signup() {
   return (
     <>
       {success ? (
-        <Admin />
+        <>
+          <Admin />
+        </>
       ) : (
         <SignUpWrapper className="col-md-6 col-sm-8 col-xs-8 col-lg-6 col-xl-4  col-8">
           <h1 className="text-center"> Log in</h1>
