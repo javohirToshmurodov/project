@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Admin from "../Admin";
 import AuthContext from "./AuthProvider";
-import { accessToken } from "../../redux/actions";
+import { accessToken, instance } from "../../redux/actions";
 import axios from "axios";
 export default function Signup() {
   const usernameRef = useRef();
@@ -25,28 +25,16 @@ export default function Signup() {
     setErrMsg("");
   }, [user, password]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "/api/v1/auth/login",
-        {
-          headers: {
-            Accept: "*/*",
-            Host: "karkasjbi.uz",
-            "Content-Type": "application/json",
-          },
-          data:{
-            "username":`${user}`,
-            "password":`${password}`
-          }
-        }
-      );
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
-      console.log("user -" , user);
-      console.log("password - ", password);
+      const response = instance
+        .post("http://172.105.103.209:9091/api/v1/auth/login", {
+          username: `${user}`,
+          password: `${password}`,
+        })
+        .then((res) => console.log(res.data.body));
       setSuccess(true);
       setUser("");
       setPassword("");
@@ -64,6 +52,7 @@ export default function Signup() {
     }
     console.log(user, password);
   };
+  // autoComplete="off"
 
   return (
     <>
@@ -86,7 +75,6 @@ export default function Signup() {
                 placeholder="Username..."
                 required
                 ref={usernameRef}
-                autoComplete="off"
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
               />

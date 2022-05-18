@@ -20,24 +20,31 @@ export const getProjects = (project) => ({
   payload: project,
 });
 // --------------------------
+// axiosinstance
 
 // accesstoken
 export const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM0MDc1MTR9.uHdOYqz8SNV3EYh4LWG4HYpgTH3cH-orA9GUgtXsgVg";
 // accesstoken
+ export const instance = axios.create({
+    baseURL:"http://172.105.103.209:9091",
+    timeout:30000,
+    headers:{
+      Authorization:`${accessToken}`,
+      Accept: "*/*",
+      "Accept-Language": "uz",
+    }
+  })
+
+
+
 
 // colleges
 
 export const loadColleges = () => {
   return function (dispatch) {
-    axios
-      .get(`/api/v1/colleges/all`, {
-        headers: {
-          Authorization: `${accessToken}`,
-          Accept: "*/*",
-          "Accept-Language": "uz",
-        },
-      })
+    instance
+      .get(`/api/v1/colleges/all`)
       .then((res) => {
         console.log("response", res.data.body);
         dispatch(getColleges(res.data));
@@ -49,14 +56,8 @@ export const loadColleges = () => {
 // products
 export const loadProducts = () => {
   return function (dispatch) {
-    axios
-      .get("/api/v1/product/all?categoryId=1", {
-        headers: {
-          Authorization: `${accessToken}`,
-          Accept: "*/*",
-          "Accept-Language": "uz",
-        },
-      })
+    instance
+      .get("/api/v1/product/all?categoryId=1")
       .then((res) => {
         console.log("products", res.data.body);
         dispatch(getProducts(res.data));
@@ -70,14 +71,8 @@ export const loadProducts = () => {
 
 export const loadProjects = () => {
   return function (dispatch) {
-    axios
-      .get("/api/v1/project/all", {
-        headers: {
-          Authorization: `${accessToken}`,
-          Accept: "*/*",
-          "Accept-Language": "uz",
-        },
-      })
+    instance
+      .get("/api/v1/project/all")
       .then((res) => {
         console.log("projects loaded = ", res.data.body);
         dispatch(getProjects(res.data));
