@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { instance } from "../../../redux/actions";
-
+import { useDispatch } from "react-redux";
+import { accessToken, instance, postColleague } from "../../../redux/actions";
 export default function Colleges() {
   const [form, setForm] = useState({});
-  const { register, handleSubmit, reset } = useForm();
-
-  const postColleague = (data) => {
+  const { register, handleSubmit } = useForm();
+const dispatch = useDispatch()
+  const createColleague = (data) => {
     const formData = data;
-    console.log(form);
     instance
       .post("/api/v1/colleges/create", formData)
       .then((res) => {
-        console.log(res.json());
+        dispatch(postColleague(res?.data))
+        setForm(data)
+        console.log("bu form-data", formData);
+        console.log("bu res-data", res?.data);
       });
   };
   return (
@@ -20,21 +22,21 @@ export default function Colleges() {
       <div className="card">
         <div className="card-header">Colleagues crud</div>
         <div className="card-body">
-          <form onSubmit={handleSubmit(postColleague)} action="#">
+          <form onSubmit={handleSubmit(createColleague)} action="#">
             <label htmlFor="college">college name</label>
             <input
-              {...register("nameUz")}
+              {...register("nameUZ")}
               type="text"
               id="nameuz"
-              name="nameUz"
-              required
+              name="nameUZ"
+              
               placeholder="uz"
               className="form-control mb-3"
             />
             <label htmlFor="descriptionUz">Description uz</label>
             <textarea
-              {...register("descriptionUz")}
-              name="descriptionUz"
+              {...register("descriptionUZ")}
+              name="descriptionUZ"
               id="descriptionUz"
               cols="30"
               rows="3"
@@ -45,10 +47,10 @@ export default function Colleges() {
             <hr />
             <label htmlFor="nameru">college name</label>
             <input
-              {...register("nameRu")}
+              {...register("nameRU")}
               type="text"
               id="nameru"
-              name="nameRu"
+              name="nameRU"
               placeholder="ru"
               className="form-control mb-3"
               required
@@ -56,8 +58,8 @@ export default function Colleges() {
 
             <label htmlFor="descriptionRu">Description ru</label>
             <textarea
-              {...register("descriptionRu")}
-              name="descriptionRu"
+              {...register("descriptionRU")}
+              name="descriptionRU"
               id="descriptionRu"
               cols="30"
               rows="3"

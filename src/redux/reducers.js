@@ -26,6 +26,12 @@ const collegesReducers = (state = initialState, action) => {
         loading: false,
       };
     }
+    case types.POST_COLLEGES: {
+      return {
+        ...state,
+        colleges: action.payload,
+      };
+    }
     default:
       return state;
   }
@@ -74,6 +80,7 @@ export const projectsReducers = (state = initialState, action) => {
     case types.POST_PROJECTS: {
       return {
         ...state,
+        projects: action.payload,
       };
     }
     default:

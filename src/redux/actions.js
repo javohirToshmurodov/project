@@ -19,6 +19,15 @@ export const getProjects = (project) => ({
   type: types.GET_PROJECTS,
   payload: project,
 });
+
+export const postColleague = (colleges) => ({
+  type: types.POST_COLLEGES,
+  payload: colleges,
+});
+export const postProjects = (project) => ({
+  type: types.POST_PROJECTS,
+  payload: project,
+});
 // --------------------------
 // axiosinstance
 
@@ -26,19 +35,15 @@ export const getProjects = (project) => ({
 export const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM4MzgwODN9.6yq14x30IXW4GqJeSL5qkDS1flM7oMyiGFYSFaJmTgw";
 // accesstoken
- export const instance = axios.create({
-    baseURL:"http://172.105.103.209:9091",
-    timeout:30000,
-    headers:{
-      Authorization:`${accessToken}`,
-      Accept: "*/*",
-      "Accept-Language": "ru",
-      "Content-Type":"application/json"
-    }
-  })
-
-
-
+export const instance = axios.create({
+  baseURL: "http://10.10.5.186:9091",
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+    Accept: "*/*",
+    "Accept-Language": "ru",
+    "Content-Type": "application/json",
+  },
+});
 
 // colleges
 
@@ -50,6 +55,13 @@ export const loadColleges = () => {
         dispatch(getColleges(res.data));
       })
       .catch((err) => console.log("xato", err));
+  };
+};
+export const createColleague = () => {
+  return function (dispatch) {
+    instance
+      .post("/api/v1/colleges/create")
+      .then((res) => console.log(res?.data));
   };
 };
 
@@ -81,11 +93,6 @@ export const loadProjects = () => {
 // ------------
 
 // Authentification
-
-
-
-
-
 
 // const apiUrl = "http://172.105.103.209:9091";
 // const instance = axios.create({
