@@ -24,7 +24,7 @@ export const getProjects = (project) => ({
 
 // accesstoken
 export const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM0MDc1MTR9.uHdOYqz8SNV3EYh4LWG4HYpgTH3cH-orA9GUgtXsgVg";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM4MzgwODN9.6yq14x30IXW4GqJeSL5qkDS1flM7oMyiGFYSFaJmTgw";
 // accesstoken
  export const instance = axios.create({
     baseURL:"http://172.105.103.209:9091",
@@ -32,7 +32,8 @@ export const accessToken =
     headers:{
       Authorization:`${accessToken}`,
       Accept: "*/*",
-      "Accept-Language": "uz",
+      "Accept-Language": "ru",
+      "Content-Type":"application/json"
     }
   })
 
@@ -46,7 +47,6 @@ export const loadColleges = () => {
     instance
       .get(`/api/v1/colleges/all`)
       .then((res) => {
-        console.log("response", res.data.body);
         dispatch(getColleges(res.data));
       })
       .catch((err) => console.log("xato", err));
@@ -59,7 +59,6 @@ export const loadProducts = () => {
     instance
       .get("/api/v1/product/all?categoryId=1")
       .then((res) => {
-        console.log("products", res.data.body);
         dispatch(getProducts(res.data));
       })
       .catch((err) => console.log("error", err));
@@ -74,7 +73,6 @@ export const loadProjects = () => {
     instance
       .get("/api/v1/project/all")
       .then((res) => {
-        console.log("projects loaded = ", res.data.body);
         dispatch(getProjects(res.data));
       })
       .catch((err) => console.log("errrr", err));

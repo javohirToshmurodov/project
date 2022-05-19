@@ -32,7 +32,7 @@ export default function Admin() {
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faCartShopping} />
-              <NavLink
+              <NavLink  
                 style={({ isActive }) => ({
                   color: isActive ? "var(--bs-yellow)" : "black",
                 })}
@@ -47,7 +47,7 @@ export default function Admin() {
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faListAlt} />
-              <NavLink
+              <NavLink 
                 style={({ isActive }) => ({
                   color: isActive ? "var(--bs-yellow)" : "black",
                 })}
@@ -62,7 +62,7 @@ export default function Admin() {
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faUser} />
-              <NavLink
+              <NavLink 
                 style={({ isActive }) => ({
                   color: isActive ? "var(--bs-yellow)" : "black",
                 })}
