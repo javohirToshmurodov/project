@@ -5,15 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 export default function ProductCard() {
   const [produkt, setProdukt] = useState([]);
 
-  const products = useSelector((state) => state.productData.products.body);
+  // const products = useSelector((state) => state.productData.products.body);
   useEffect(() => {
    
-    setProdukt(products);
+    // setProdukt(products);
   }, []);
   const navigate = useNavigate();
   return (
     <>
-      {products?.map((e, i) => (
+      {/* {products?.map((e, i) => (
         <ProductCardWrapper
           key={i}
           data-aos="fade-left"
@@ -37,7 +37,7 @@ export default function ProductCard() {
             </div>
           </div>
         </ProductCardWrapper>
-      ))}
+      ))} */}
     </>
   );
 }

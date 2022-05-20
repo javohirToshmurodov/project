@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { deleteColleague, instance } from "../../../redux/actions";
+import { deleteColleague, instance, loadColleges } from "../../../redux/actions";
 export default function ColleaguesTable() {
   const colleagues = useSelector((state) => state.data.colleges.body);
   // const reversedColleague = colleagues.reverse();
@@ -16,6 +16,7 @@ export default function ColleaguesTable() {
         .then((res) => {
           dispatch(deleteColleague(res?.data));
           console.log(res);
+          dispatch(loadColleges(res?.data))
         });
     } catch (err) {
       console.log(err);
