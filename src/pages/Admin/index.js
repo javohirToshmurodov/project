@@ -5,6 +5,7 @@ import {
   faListAlt,
   faPhone,
   faTableList,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -19,16 +20,14 @@ export default function Admin() {
         <Sidebar className="pt-4">
           <p
             className="text-dark fw-bold ps-3"
-            data-aos="fade-down"
-            data-aos-duration="1400"
+          
           >
             Dashboard
           </p>
 
           <ul>
             <li
-              data-aos="fade-right"
-              data-aos-duration="800"
+            
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faCartShopping} />
@@ -42,8 +41,7 @@ export default function Admin() {
               </NavLink>
             </li>
             <li
-              data-aos="fade-right"
-              data-aos-duration="1000"
+              
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faListAlt} />
@@ -57,8 +55,7 @@ export default function Admin() {
               </NavLink>
             </li>
             <li
-              data-aos="fade-right"
-              data-aos-duration="1200"
+              
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faUser} />
@@ -72,8 +69,7 @@ export default function Admin() {
               </NavLink>
             </li>
             <li
-              data-aos="fade-right"
-              data-aos-duration="1400"
+              
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faBars} />
@@ -87,8 +83,7 @@ export default function Admin() {
               </NavLink>
             </li>
             <li
-              data-aos="fade-right"
-              data-aos-duration="1600"
+             
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faPhone} />
@@ -102,8 +97,7 @@ export default function Admin() {
               </NavLink>
             </li>
             <li
-              data-aos="fade-right"
-              data-aos-duration="1800"
+             
               className="menuItem py-3 d-flex "
             >
               <FontAwesomeIcon icon={faTableList} />
@@ -114,6 +108,20 @@ export default function Admin() {
                 to="/admin/producttable"
               >
                 ProductTable
+              </NavLink>
+            </li>
+            <li
+              
+              className="menuItem py-3 d-flex "
+            >
+              <FontAwesomeIcon icon={faUsers} />
+              <NavLink
+                style={({ isActive }) => ({
+                  color: isActive ? "var(--bs-yellow)" : "black",
+                })}
+                to="/admin/colleaguestable"
+              >
+                Colleaguestable
               </NavLink>
             </li>
           </ul>

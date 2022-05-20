@@ -11,23 +11,24 @@ export default function Form() {
   const createCategory = (data) => {
     const formData = data;
     // console.log(form);
-    instance
-      .post(
-        `/api/v1/category/create/?nameRU=${data.nameRU}&nameUZ=${data.nameUZ}`,
-        formData,
-        {
+    try {
+      instance
+        .post(`/api/v1/category/create/`, formData, {
           headers: {
             Accept: "*/*",
           },
-        }
-      )
-      .then((res) => {
-        dispatch(postCategory(res?.data));
-        setForm(data);
-        console.log(data);
-        alert("category qo'shildi");
-        reset()
-      });
+        })
+        .then((res) => {
+          dispatch(postCategory(res?.data));
+          setForm(data);
+          console.log(data);
+          alert("category qo'shildi");
+          reset();
+        });
+    } catch (err) {
+      console.log(err);
+      console.log("category qo'shishda xatolik");
+    }
   };
 
   return (
@@ -65,7 +66,7 @@ export default function Form() {
               />
             </div>
             <div className="text-end">
-              <button  className="btn btn-warning mt-3 ">Submit</button>
+              <button className="btn btn-warning mt-3 ">Submit</button>
             </div>
           </form>
         </CategoryWrapper>

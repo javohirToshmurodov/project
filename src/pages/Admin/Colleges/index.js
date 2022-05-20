@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { accessToken, instance, postColleague } from "../../../redux/actions";
+import { instance, postColleague } from "../../../redux/actions";
 export default function Colleges() {
   const [form, setForm] = useState({});
-  const { register, handleSubmit } = useForm();
-const dispatch = useDispatch()
+  const { register, handleSubmit, reset } = useForm();
+  const dispatch = useDispatch();
   const createColleague = (data) => {
     const formData = data;
-    instance
-      .post("/api/v1/colleges/create", formData)
-      .then((res) => {
-        dispatch(postColleague(res?.data))
-        setForm(data)
-        console.log("bu form-data", formData);
-        console.log("bu res-data", res?.data);
-      });
+    instance.post("/api/v1/colleges/create", formData).then((res) => {
+      dispatch(postColleague(res?.data));
+      setForm(data);
+      alert("коллега добавил");
+      reset();
+    });
   };
   return (
     <div className="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-6">
@@ -29,7 +27,7 @@ const dispatch = useDispatch()
               type="text"
               id="nameuz"
               name="nameUZ"
-            required
+              required
               placeholder="uz"
               className="form-control mb-3"
             />

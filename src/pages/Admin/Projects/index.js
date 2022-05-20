@@ -5,7 +5,7 @@ import { instance, postProjects } from "../../../redux/actions";
 
 export default function Project() {
   const [form, setForm] = useState({});
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
   const createProjects = (data) => {
     const formData = data;
@@ -13,6 +13,8 @@ export default function Project() {
     instance.post("/api/v1/project/create", formData).then((res) => {
       dispatch(postProjects(res?.data));
       setForm(data);
+      alert("проект добавлен");
+      reset();
     });
   };
   return (
@@ -21,7 +23,7 @@ export default function Project() {
         <div className="card-header bg-dark text-white">Projects crud</div>
         <div className="card-body">
           <form onSubmit={handleSubmit(createProjects)} action="#">
-            <label htmlFor="">project name</label>
+            <label htmlFor="">project titleUz</label>
             <input
               {...register("titleUZ")}
               type="text"
@@ -32,7 +34,7 @@ export default function Project() {
               className="form-control mb-3"
             />
 
-            <label htmlFor="nameru">college name</label>
+            <label htmlFor="nameru">project titleRu</label>
             <input
               {...register("titleRU")}
               type="text"

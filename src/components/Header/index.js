@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { NavbarWrapper } from "../../styles";
 import CompanyAbout from "../companyAbout";
 export default function Header() {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <NavbarWrapper>
       <nav
@@ -13,7 +14,9 @@ export default function Header() {
       >
         {location.pathname === "/login" ? null : (
           <div className="container-fluid">
-            <h3 onClick={()=>navigate("/")} className="navbar-brand">Каркас</h3>
+            <h3 onClick={() => navigate("/")} className="navbar-brand">
+              Каркас
+            </h3>
 
             <button
               className="navbar-toggler bg-white"
@@ -101,6 +104,16 @@ export default function Header() {
                   >
                     Контакт
                   </NavLink>
+                </li>
+                <li className="nav-item">
+                  <select
+                    className="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option defaultValue={"язык"}>язык</option>
+                    <option value="ru">уз</option>
+                    <option value="ru">ру</option>
+                  </select>
                 </li>
               </ul>
             </div>

@@ -10,7 +10,7 @@ export default function Signup() {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
   // axios post user here
-
+// const history = useHistory()
   
 
   useEffect(() => {

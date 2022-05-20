@@ -20,16 +20,16 @@ import AboutCreator from "./pages/AboutCreator";
 import Mission from "./pages/Mission";
 import { useDispatch } from "react-redux";
 import { loadColleges, loadProducts, loadProjects } from "./redux/actions";
-
+import ColleaguesTable from "./pages/Admin/ColleaguesTable";
 
 export default function App() {
-  const dispatch = useDispatch()
-  useEffect(()=>{
+  const dispatch = useDispatch();
+  useEffect(() => {
     dispatch(loadProducts());
     dispatch(loadColleges());
     dispatch(loadProjects());
-  },[])
-  
+  }, []);
+
   return (
     <Container>
       <Header />
@@ -51,6 +51,7 @@ export default function App() {
           <Route path="project" element={<Project />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="producttable" element={<ProductTable />} />
+          <Route path="colleaguestable" element={<ColleaguesTable />} />
         </Route>
       </Routes>
     </Container>

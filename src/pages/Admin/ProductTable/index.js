@@ -3,6 +3,7 @@ import React from "react";
 import { products } from "../../../data";
 import { faPen, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 export default function ProductTable() {
+  
   return (
     <div className="row">
       <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-12">
@@ -13,20 +14,18 @@ export default function ProductTable() {
           <thead>
             <tr>
               <th>#</th>
-              <th>ProductName</th>
-              <th>Description</th>
-              <th>Sold</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>продукт</th>
+              <th>описание</th>
+              <th>изменит</th>
+              <th>удалять</th>
             </tr>
           </thead>
           <tbody>
             {products.map((e, i) => (
               <tr key={i}>
-                <td>{i}</td>
+                <td>{i+1}</td>
                 <td>{e.productName}</td>
                 <td>{e.description}</td>
-                <td>{e.sold}</td>
                 <td>
                   <button className="btn btn-warning ">
                     <FontAwesomeIcon icon={faPen} className="text-white" />

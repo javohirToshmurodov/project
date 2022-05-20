@@ -32,6 +32,10 @@ export const postCategory = (category) => ({
   type: types.POST_CATEGORY,
   payload: category,
 });
+export const deleteColleague =(college)=>({
+  type:types.DELETE_COLLEGES,
+  payload:college
+})
 // --------------------------
 // axiosinstance
 
@@ -56,7 +60,7 @@ export const loadColleges = () => {
     instance
       .get(`/api/v1/colleges/all`)
       .then((res) => {
-        dispatch(getColleges(res.data));
+        dispatch(getColleges(res?.data));
       })
       .catch((err) => console.log("xato", err));
   };
@@ -75,7 +79,7 @@ export const loadProducts = () => {
     instance
       .get("/api/v1/product/all?categoryId=1")
       .then((res) => {
-        dispatch(getProducts(res.data));
+        dispatch(getProducts(res?.data));
       })
       .catch((err) => console.log("error", err));
   };
@@ -89,33 +93,10 @@ export const loadProjects = () => {
     instance
       .get("/api/v1/project/all")
       .then((res) => {
-        dispatch(getProjects(res.data));
+        dispatch(getProjects(res?.data));
       })
       .catch((err) => console.log("errrr", err));
   };
 };
 // ------------
 
-// Authentification
-
-// const apiUrl = "http://172.105.103.209:9091";
-// const instance = axios.create({
-//   baseURL: "http://172.105.103.209:9091/api/v1/",
-//   timeout: 30000,
-//   headers: {
-//     Authorization:
-//       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM0MDc1MTR9.uHdOYqz8SNV3EYh4LWG4HYpgTH3cH-orA9GUgtXsgVg",
-//     Accept: "*/*",
-//     Host: "karkas.uz",
-//     "Accept-Language": "uz",
-//   },
-// });
-// axios.interceptors.request.use(
-//   (config) => {
-//     config.headers.authorization = `Bearer ${accessToken}`;
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   }
-// );
