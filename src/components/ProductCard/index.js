@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ProductCardWrapper } from "../../styles";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {  loadProducts } from "../../redux/actions";
 export default function ProductCard() {
-  const dispatch = useDispatch();
   const [produkt, setProdukt] = useState([]);
 
   const products = useSelector((state) => state.productData.products.body);

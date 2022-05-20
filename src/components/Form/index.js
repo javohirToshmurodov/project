@@ -1,7 +1,9 @@
 import React from "react";
-import { CategoryWrapper, SignUpWrapper } from "../../styles";
+import { CategoryWrapper } from "../../styles";
 
 export default function Form() {
+
+  // const {handleSubmit, register} = useForm()
   return (
     <div className="row">
       <div className="col-lg-4 col-xl-4 col-md-4 col-sm-4 col-6">

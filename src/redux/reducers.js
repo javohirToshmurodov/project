@@ -2,7 +2,11 @@ import * as types from "./actionType";
 
 const initialState = {
   colleges: [],
-  products: [],
+  categories:{
+      products:[
+
+      ]
+  },
   loading: false,
   projects: [],
   admin: {
@@ -36,7 +40,29 @@ const collegesReducers = (state = initialState, action) => {
       return state;
   }
 };
-
+export const categoriesReducers = (state = initialState, action)=>{
+  switch(action.type){
+    case types.POST_CATEGORY:{
+      return{
+        ...state,
+        categories:action.payload
+      }
+    }
+    case types.GET_CATEGORY:{
+      return {
+        ...state,
+        categories:action.payload
+      }
+    }
+    case types.DELETE_CATEGORY:{
+      return{
+        ...state
+      }
+    }
+    default:
+      return state
+  }
+}
 export const productsReducers = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_PRODUCTS: {

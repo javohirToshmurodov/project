@@ -1,26 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SignUpWrapper } from "../../styles";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import Admin from "../Admin";
-import AuthContext from "./AuthProvider";
-import { accessToken, instance } from "../../redux/actions";
-import axios from "axios";
-import Toast from "../../components/Toast";
+import {  instance } from "../../redux/actions";
 export default function Signup() {
   const usernameRef = useRef();
-  const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-  const { setAuth } = useContext(AuthContext);
-  const [isLogin, setIsLogin] = useState(false);
   // axios post user here
 
-  useEffect(() => {
-    // usernameRef.current.focus();
-  }, []);
+  
 
   useEffect(() => {
     setErrMsg("");
@@ -74,7 +65,6 @@ export default function Signup() {
         </>
       ) : (
         <>
-          <Toast />
           <SignUpWrapper className="col-md-6 col-sm-8 col-xs-8 col-lg-6 col-xl-4  col-8">
             <h1 className="text-center"> Log in</h1>
             <form action="#" className="w-100" onSubmit={handleSubmit}>
