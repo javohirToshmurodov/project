@@ -29,7 +29,7 @@ const dispatch = useDispatch()
               type="text"
               id="nameuz"
               name="nameUZ"
-              
+            required
               placeholder="uz"
               className="form-control mb-3"
             />
