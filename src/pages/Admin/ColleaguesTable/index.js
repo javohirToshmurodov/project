@@ -3,20 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { deleteColleague, instance, loadColleges } from "../../../redux/actions";
+import {
+  deleteColleague,
+  instance,
+  loadColleges,
+} from "../../../redux/actions";
 export default function ColleaguesTable() {
   const colleagues = useSelector((state) => state.data.colleges.body);
-  // const reversedColleague = colleagues.reverse();
   const dispatch = useDispatch();
 
-  const deleteCollege = () => {
+  const delCollege = (id, e) => {
     try {
       instance
-        .delete(`/api/v1/colleges/delete/${colleagues[0]?.id}`)
+        .delete(`/api/v1/colleges/delete/${id}`)
         .then((res) => {
-          dispatch(deleteColleague(res?.data));
-          console.log(res);
-          dispatch(loadColleges(res?.data))
+          dispatch(loadColleges());
         });
     } catch (err) {
       console.log(err);
@@ -58,7 +59,10 @@ export default function ColleaguesTable() {
                 </button>
               </td>
               <td>
-                <button onClick={deleteCollege} className="btn btn-danger">
+                <button
+                  onClick={(event) => delCollege(e.id, event)}
+                  className="btn btn-danger"
+                >
                   <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
               </td>

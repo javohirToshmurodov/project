@@ -8,6 +8,7 @@ export default function AboutCard() {
   const projects = useSelector((state) => state.projectData.projects.body);
   useEffect(() => {
     setProject(projects);
+    console.log(projects);
   }, []);
 
   return (

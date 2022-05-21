@@ -6,6 +6,11 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const changeLang = (e) => {
+    console.log(e.target.value);
+    localStorage.setItem("language", e.target.value)
+    window.location.reload()
+  };
   return (
     <NavbarWrapper>
       <nav
@@ -107,11 +112,12 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <select
+                    onChange={changeLang}
                     className="form-select"
                     aria-label="Default select example"
                   >
                     <option defaultValue={"язык"}>язык</option>
-                    <option value="ru">уз</option>
+                    <option value="uz">уз</option>
                     <option value="ru">ру</option>
                   </select>
                 </li>

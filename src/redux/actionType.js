@@ -15,3 +15,7 @@ export const POST_CATEGORY = "POST_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
 // -------------------
 export const POST_USER = "POST_USER"
+
+// loader
+export const SHOW_LOADER = "SHOW_LOADER";
+export const HIDE_LOADER = "HIDE_LOADER"

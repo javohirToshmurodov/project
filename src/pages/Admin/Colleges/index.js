@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { instance, postColleague } from "../../../redux/actions";
+import { instance, loadColleges, postColleague } from "../../../redux/actions";
 export default function Colleges() {
   const [form, setForm] = useState({});
   const { register, handleSubmit, reset } = useForm();
@@ -12,6 +12,7 @@ export default function Colleges() {
       dispatch(postColleague(res?.data));
       setForm(data);
       alert("коллега добавил");
+      dispatch(loadColleges())
       reset();
     });
   };

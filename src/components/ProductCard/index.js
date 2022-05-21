@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 export default function ProductCard() {
   const [produkt, setProdukt] = useState([]);
 
-  // const products = useSelector((state) => state.productData.products.body);
+  const products = useSelector((state) => state.productData.products);
   useEffect(() => {
-   
+   console.log(
+     products
+   );
     // setProdukt(products);
   }, []);
   const navigate = useNavigate();

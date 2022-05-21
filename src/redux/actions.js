@@ -32,10 +32,14 @@ export const postCategory = (category) => ({
   type: types.POST_CATEGORY,
   payload: category,
 });
-export const deleteColleague =(college)=>({
-  type:types.DELETE_COLLEGES,
-  payload:college
-})
+export const deleteColleague = (college) => ({
+  type: types.DELETE_COLLEGES,
+  payload: college,
+});
+export const showLoader = (loader) => ({
+  type: types.SHOW_LOADER,
+  payload: loader,
+});
 // --------------------------
 // axiosinstance
 
@@ -43,17 +47,20 @@ export const deleteColleague =(college)=>({
 export const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM4MzgwODN9.6yq14x30IXW4GqJeSL5qkDS1flM7oMyiGFYSFaJmTgw";
 // accesstoken
+const lang = localStorage.getItem("language") || "ru";
 export const instance = axios.create({
   baseURL: "http://172.105.103.209:9091",
   headers: {
     Authorization: `Bearer ${accessToken}`,
     Accept: "*/*",
-    "Accept-Language": "ru",
+    "Accept-Language": `${lang}`,
     "Content-Type": "application/json",
   },
 });
 
 // colleges
+
+
 
 export const loadColleges = () => {
   return function (dispatch) {
@@ -77,9 +84,10 @@ export const createColleague = () => {
 export const loadProducts = () => {
   return function (dispatch) {
     instance
-      .get("/api/v1/product/all?categoryId=1")
+      .get("/api/v1/product/all/0")
       .then((res) => {
         dispatch(getProducts(res?.data));
+        console.log(res?.data);
       })
       .catch((err) => console.log("error", err));
   };
@@ -99,4 +107,3 @@ export const loadProjects = () => {
   };
 };
 // ------------
-

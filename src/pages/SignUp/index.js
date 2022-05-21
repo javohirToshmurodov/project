@@ -22,12 +22,13 @@ export default function Signup() {
 
     try {
       const response = instance
-        .post("http://172.105.103.209:9091/api/v1/auth/login", {
+        .post("/api/v1/auth/login", {
           username: `${user}`,
           password: `${password}`,
         })
         .then((res) => {
           console.log(res.data.body);
+          alert("you are logged in")
         });
       if (user === "admin" && password === "password") {
         setSuccess(true);

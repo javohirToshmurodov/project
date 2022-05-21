@@ -21,6 +21,9 @@ import Mission from "./pages/Mission";
 import { useDispatch } from "react-redux";
 import { loadColleges, loadProducts, loadProjects } from "./redux/actions";
 import ColleaguesTable from "./pages/Admin/ColleaguesTable";
+import Loader from "./components/Loader";
+
+
 
 export default function App() {
   const dispatch = useDispatch();

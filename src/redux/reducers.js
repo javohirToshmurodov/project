@@ -5,7 +5,7 @@ const initialState = {
   categories: {
     products: [],
   },
-  loading: false,
+  loader: false,
   projects: [],
   admin: {
     username: "",
@@ -19,13 +19,11 @@ const collegesReducers = (state = initialState, action) => {
       return {
         ...state,
         colleges: action.payload,
-        loading: false,
       };
     }
     case types.DELETE_COLLEGES: {
       return {
         ...state,
-        loading: false,
         colleges: action.payload,
       };
     }
@@ -68,19 +66,16 @@ export const productsReducers = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload,
-        loading: false,
       };
     }
     case types.POST_PRODUCTS: {
       return {
         ...state,
-        loading: false,
       };
     }
     case types.DELETE_PRODUCTS: {
       return {
         ...state,
-        loading: false,
       };
     }
     default:
@@ -94,7 +89,6 @@ export const projectsReducers = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
-        loading: false,
       };
     }
     case types.DELETE_PROJECTS: {
@@ -106,6 +100,26 @@ export const projectsReducers = (state = initialState, action) => {
       return {
         ...state,
         projects: action.payload,
+      };
+    }
+    default:
+      return state;
+  }
+};
+// loader
+
+export const loaderReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.SHOW_LOADER: {
+      return {
+        ...state,
+        loader: true,
+      };
+    }
+    case types.HIDE_LOADER: {
+      return {
+        ...state,
+        loader: false,
       };
     }
     default:

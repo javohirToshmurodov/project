@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { instance, postProjects } from "../../../redux/actions";
+import { instance, loadProjects, postProjects } from "../../../redux/actions";
 
 export default function Project() {
   const [form, setForm] = useState({});
@@ -14,6 +14,7 @@ export default function Project() {
       dispatch(postProjects(res?.data));
       setForm(data);
       alert("проект добавлен");
+      dispatch(loadProjects())
       reset();
     });
   };
