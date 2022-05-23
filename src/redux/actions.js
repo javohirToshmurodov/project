@@ -1,4 +1,5 @@
 import axios from "axios";
+import { products } from "../data";
 import * as types from "./actionType";
 
 // METHOD GET_ALL
@@ -44,6 +45,10 @@ export const postCategory = (category) => ({
   type: types.POST_CATEGORY,
   payload: category,
 });
+export const postProducts = (products)=>({
+  type:types.POST_PRODUCTS,
+  payload:products
+})
 
 // post finished
 
@@ -73,7 +78,7 @@ export const showLoader = (loader) => ({
 export const accessToken =
   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM4MzgwODN9.6yq14x30IXW4GqJeSL5qkDS1flM7oMyiGFYSFaJmTgw";
 // accesstoken
-const lang = localStorage.getItem("language") || "ru";
+export const lang = localStorage.getItem("language") || "ru";
 export const instance = axios.create({
   baseURL: "http://10.10.5.64:9091",
   headers: {
@@ -81,6 +86,7 @@ export const instance = axios.create({
     Accept: "*/*",
     "Accept-Language": `${lang}`,
     "Content-Type": "application/json",
+    
   },
 });
 
@@ -106,12 +112,6 @@ export const loadColleges = () => {
 
 // products
 
-
-// export const createProducts = () => {
-//   return function (dispatch) {
-//     instance.post("api/v1/products/create");
-//   };
-// };
 // products
 
 // categories

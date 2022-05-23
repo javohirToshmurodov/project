@@ -71,11 +71,13 @@ export const productsReducers = (state = initialState, action) => {
     case types.POST_PRODUCTS: {
       return {
         ...state,
+        products: action.payload,
       };
     }
     case types.DELETE_PRODUCTS: {
       return {
         ...state,
+        products: action.payload,
       };
     }
     default:
