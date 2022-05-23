@@ -22,18 +22,16 @@ import { useDispatch } from "react-redux";
 import {
   loadCategories,
   loadColleges,
-  loadProducts,
   loadProjects,
 } from "./redux/actions";
 import ColleaguesTable from "./pages/Admin/ColleaguesTable";
 import Loader from "./components/Loader";
 import ProjectsTable from "./pages/Admin/ProjectsTable";
 import ProtectedRoutes from "./ProtectedRoutes";
-
+// import {}
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadProducts());
     dispatch(loadColleges());
     dispatch(loadCategories());
     dispatch(loadProjects());

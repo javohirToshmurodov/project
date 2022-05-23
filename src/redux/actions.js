@@ -20,17 +20,17 @@ export const getProjects = (project) => ({
   payload: project,
 });
 
-export const getContacts = (contact) => ({
+export const getContacts = (contacts) => ({
   type: types.GET_CONTACT,
-  payload: contact,
+  payload: contacts,
 });
 
 // get finished
 
 // post zapros
-export const postContacts = (contact) => ({
+export const postContacts = (contacts) => ({
   type: types.POST_CONTACT,
-  payload: contact,
+  payload: contacts,
 });
 export const postColleague = (colleges) => ({
   type: types.POST_COLLEGES,
@@ -75,7 +75,7 @@ export const accessToken =
 // accesstoken
 const lang = localStorage.getItem("language") || "ru";
 export const instance = axios.create({
-  baseURL: "http://172.105.103.209:9091",
+  baseURL: "http://10.10.5.64:9091",
   headers: {
     Authorization: `Bearer ${accessToken}`,
     Accept: "*/*",
@@ -105,17 +105,7 @@ export const loadColleges = () => {
 // };
 
 // products
-export const loadProducts = () => {
-  return function (dispatch) {
-    instance
-      .get("/api/v1/product/all/0")
-      .then((res) => {
-        dispatch(getProducts(res?.data));
-        console.log(res?.data);
-      })
-      .catch((err) => console.log("error", err));
-  };
-};
+
 
 // export const createProducts = () => {
 //   return function (dispatch) {
@@ -132,7 +122,6 @@ export const loadCategories = () => {
       .get("/api/v1/category/all")
       .then((res) => {
         dispatch(getCategory(res?.data));
-        console.log(res?.data);
       })
       .catch((err) => console.log(err));
   };
@@ -153,5 +142,14 @@ export const loadProjects = () => {
 // ------------
 
 // contacts
-
-
+export const loadContacts = () => {
+  return function (dispatch) {
+    instance
+      .get("/api/v1/contact/all")
+      .then((res) => {
+        dispatch(getContacts(res?.data));
+        console.log(res?.data);
+      })
+      .catch((err) => console.log(err));
+  };
+};

@@ -2,9 +2,8 @@ import * as types from "./actionType";
 
 const initialState = {
   colleges: [],
-  categories: {
-    products: [],
-  },
+  categories: [],
+  products: [],
   loader: false,
   projects: [],
   contacts: [],
@@ -114,13 +113,19 @@ export const contactReducer = (state = initialState, action) => {
     case types.POST_CONTACT: {
       return {
         ...state,
-        payload: action.payload,
+        contacts: action.payload,
       };
     }
     case types.DELETE_CONTACT: {
       return {
         ...state,
-        payload: action.payload,
+        contacts: action.payload,
+      };
+    }
+    case types.GET_CONTACT: {
+      return {
+        ...state,
+        contacts: action.payload,
       };
     }
     default:

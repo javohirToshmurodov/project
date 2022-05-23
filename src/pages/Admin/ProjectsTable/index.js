@@ -8,10 +8,7 @@ export default function ProjectsTable() {
   const projects = useSelector((state) => state.projectData.projects.body);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(loadProjects());
-    console.log(projects);
-  }, []);
+ 
   const delProjects = (id, e) => {
     try {
       instance
