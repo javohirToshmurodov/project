@@ -6,15 +6,20 @@ export default function ProductCard() {
   const [produkt, setProdukt] = useState([]);
 
   const products = useSelector((state) => state.productData.products);
-  useEffect(() => {
-   console.log(
-     products
-   );
-    // setProdukt(products);
-  }, []);
+  const categories = useSelector((state) => state.categoryData.categories.body);
+
   const navigate = useNavigate();
   return (
     <>
+      <div className=" w-25">
+        <select className="form-select" aria-label="Default select example">
+          <option selected>Open categories</option>
+          {categories.map((e, i) => (
+            <option>{e.name}</option>
+          ))}
+        </select>
+      </div>
+
       {/* {products?.map((e, i) => (
         <ProductCardWrapper
           key={i}

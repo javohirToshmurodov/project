@@ -20,6 +20,18 @@ export const getProjects = (project) => ({
   payload: project,
 });
 
+export const getContacts = (contact) => ({
+  type: types.GET_CONTACT,
+  payload: contact,
+});
+
+// get finished
+
+// post zapros
+export const postContacts = (contact) => ({
+  type: types.POST_CONTACT,
+  payload: contact,
+});
 export const postColleague = (colleges) => ({
   type: types.POST_COLLEGES,
   payload: colleges,
@@ -32,10 +44,24 @@ export const postCategory = (category) => ({
   type: types.POST_CATEGORY,
   payload: category,
 });
+
+// post finished
+
+// delete zapros
 export const deleteColleague = (college) => ({
   type: types.DELETE_COLLEGES,
   payload: college,
 });
+export const deleteProjects = (projects) => ({
+  type: types.DELETE_PROJECTS,
+  payload: projects,
+});
+export const deleteContacts = (contacts) => ({
+  type: types.DELETE_CONTACT,
+  payload: contacts,
+});
+
+// delete finished
 export const showLoader = (loader) => ({
   type: types.SHOW_LOADER,
   payload: loader,
@@ -60,8 +86,6 @@ export const instance = axios.create({
 
 // colleges
 
-
-
 export const loadColleges = () => {
   return function (dispatch) {
     instance
@@ -72,13 +96,13 @@ export const loadColleges = () => {
       .catch((err) => console.log("xato", err));
   };
 };
-export const createColleague = () => {
-  return function (dispatch) {
-    instance
-      .post("/api/v1/colleges/create")
-      .then((res) => console.log(res?.data));
-  };
-};
+// export const createColleague = () => {
+//   return function (dispatch) {
+//     instance
+//       .post("/api/v1/colleges/create")
+//       .then((res) => console.log(res?.data));
+//   };
+// };
 
 // products
 export const loadProducts = () => {
@@ -92,7 +116,27 @@ export const loadProducts = () => {
       .catch((err) => console.log("error", err));
   };
 };
+
+// export const createProducts = () => {
+//   return function (dispatch) {
+//     instance.post("api/v1/products/create");
+//   };
+// };
 // products
+
+// categories
+
+export const loadCategories = () => {
+  return function (dispatch) {
+    instance
+      .get("/api/v1/category/all")
+      .then((res) => {
+        dispatch(getCategory(res?.data));
+        console.log(res?.data);
+      })
+      .catch((err) => console.log(err));
+  };
+};
 
 // projects
 
@@ -107,3 +151,7 @@ export const loadProjects = () => {
   };
 };
 // ------------
+
+// contacts
+
+

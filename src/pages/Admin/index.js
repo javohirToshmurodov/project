@@ -124,6 +124,20 @@ export default function Admin() {
                 Colleaguestable
               </NavLink>
             </li>
+            <li
+              
+              className="menuItem py-3 d-flex "
+            >
+              <FontAwesomeIcon icon={faTableList} />
+              <NavLink
+                style={({ isActive }) => ({
+                  color: isActive ? "var(--bs-yellow)" : "black",
+                })}
+                to="/admin/projectstable"
+              >
+                ProjectsTable
+              </NavLink>
+            </li>
           </ul>
         </Sidebar>
       </div>

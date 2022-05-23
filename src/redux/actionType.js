@@ -16,6 +16,13 @@ export const DELETE_CATEGORY = "DELETE_CATEGORY";
 // -------------------
 export const POST_USER = "POST_USER"
 
+
+// contact
+export const POST_CONTACT = "POST_CONTACT"
+export const GET_CONTACT = "GET_CONTACT";
+export const DELETE_CONTACT = "DELETE_CONTACT"
+
+
 // loader
 export const SHOW_LOADER = "SHOW_LOADER";
 export const HIDE_LOADER = "HIDE_LOADER"

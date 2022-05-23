@@ -1,23 +1,23 @@
 import { faPen, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import {
-  deleteColleague,
-  instance,
-  loadColleges,
-} from "../../../redux/actions";
-export default function ColleaguesTable() {
-  const colleagues = useSelector((state) => state.data.colleges.body);
+import { instance, loadProjects } from "../../../redux/actions";
+export default function ProjectsTable() {
+  const projects = useSelector((state) => state.projectData.projects.body);
   const dispatch = useDispatch();
 
-  const delCollege = (id, e) => {
+  useEffect(() => {
+    dispatch(loadProjects());
+    console.log(projects);
+  }, []);
+  const delProjects = (id, e) => {
     try {
       instance
-        .delete(`/api/v1/colleges/delete/${id}`)
+        .delete(`/api/v1/project/delete/${id}`)
         .then((res) => {
-          dispatch(loadColleges());
+          dispatch(loadProjects());
         });
     } catch (err) {
       console.log(err);
@@ -39,7 +39,7 @@ export default function ColleaguesTable() {
           </tr>
         </thead>
         <tbody>
-          {colleagues?.map((e, i) => (
+           {projects?.map((e, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
               <td className="d-flex align-items-center gap-2">
@@ -50,7 +50,7 @@ export default function ColleaguesTable() {
                     alt="colleagueimage"
                   />
                 </TableImgContainer>
-                <div>{e.name}</div>
+                <div>{e.title}</div>
               </td>
               <td>{e.description}</td>
               <td>
@@ -60,14 +60,14 @@ export default function ColleaguesTable() {
               </td>
               <td>
                 <button
-                  onClick={(event) => delCollege(e.id, event)}
+                  onClick={(event) => delProjects(e.id, event)}
                   className="btn btn-danger"
                 >
                   <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
               </td>
             </tr>
-          ))}
+          ))} 
         </tbody>
       </table>
     </div>

@@ -7,6 +7,7 @@ const initialState = {
   },
   loader: false,
   projects: [],
+  contacts: [],
   admin: {
     username: "",
     password: "",
@@ -94,12 +95,32 @@ export const projectsReducers = (state = initialState, action) => {
     case types.DELETE_PROJECTS: {
       return {
         ...state,
+        projects: action.payload,
       };
     }
     case types.POST_PROJECTS: {
       return {
         ...state,
         projects: action.payload,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export const contactReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.POST_CONTACT: {
+      return {
+        ...state,
+        payload: action.payload,
+      };
+    }
+    case types.DELETE_CONTACT: {
+      return {
+        ...state,
+        payload: action.payload,
       };
     }
     default:

@@ -19,17 +19,23 @@ import ProductTable from "./pages/Admin/ProductTable";
 import AboutCreator from "./pages/AboutCreator";
 import Mission from "./pages/Mission";
 import { useDispatch } from "react-redux";
-import { loadColleges, loadProducts, loadProjects } from "./redux/actions";
+import {
+  loadCategories,
+  loadColleges,
+  loadProducts,
+  loadProjects,
+} from "./redux/actions";
 import ColleaguesTable from "./pages/Admin/ColleaguesTable";
 import Loader from "./components/Loader";
-
-
+import ProjectsTable from "./pages/Admin/ProjectsTable";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadProducts());
     dispatch(loadColleges());
+    dispatch(loadCategories());
     dispatch(loadProjects());
   }, []);
 
@@ -38,6 +44,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="*" element={<Navigate to="/" replace />} />
+
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="aboutcreator" element={<AboutCreator />} />
@@ -46,15 +53,18 @@ export default function App() {
         <Route path="mission" element={<Mission />} />
         <Route path="contact" element={<ContactUs />} />
         <Route path="projects" element={<Projects />} />
-        <Route path="login" element={<Signup />} />
-        <Route path="admin" element={<Admin />}>
-          <Route path="product" element={<Product />} />
-          <Route path="category" element={<Category />} />
-          <Route path="colleges" element={<Colleges />} />
-          <Route path="project" element={<Project />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="producttable" element={<ProductTable />} />
-          <Route path="colleaguestable" element={<ColleaguesTable />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="login" element={<Signup />} />
+          <Route path="admin" element={<Admin />}>
+            <Route path="product" element={<Product />} />
+            <Route path="category" element={<Category />} />
+            <Route path="colleges" element={<Colleges />} />
+            <Route path="project" element={<Project />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="producttable" element={<ProductTable />} />
+            <Route path="colleaguestable" element={<ColleaguesTable />} />
+            <Route path="projectstable" element={<ProjectsTable />} />
+          </Route>
         </Route>
       </Routes>
     </Container>

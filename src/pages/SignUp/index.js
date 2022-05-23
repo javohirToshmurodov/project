@@ -2,17 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import { SignUpWrapper } from "../../styles";
 import { useRef } from "react";
 import Admin from "../Admin";
-import {  instance } from "../../redux/actions";
+import {  accessToken, instance } from "../../redux/actions";
+import { Outlet, useNavigate } from "react-router-dom";
 export default function Signup() {
   const usernameRef = useRef();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-  // axios post user here
-// const history = useHistory()
-  
-
+  const navigate = useNavigate()
   useEffect(() => {
     setErrMsg("");
   }, [user, password]);
@@ -27,8 +25,13 @@ export default function Signup() {
           password: `${password}`,
         })
         .then((res) => {
-          console.log(res.data.body);
-          alert("you are logged in")
+          console.log(res?.data.body);
+          localStorage.setItem("accesstoken", res?.data.body.accessToken)
+          if(accessToken){
+            navigate("/admin")
+          }else{
+            navigate("/login")
+          }
         });
       if (user === "admin" && password === "password") {
         setSuccess(true);
@@ -62,7 +65,7 @@ export default function Signup() {
     <>
       {success ? (
         <>
-          <Admin />
+          <Outlet />
         </>
       ) : (
         <>
