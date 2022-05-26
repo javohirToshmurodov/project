@@ -14,23 +14,40 @@ export default function Product() {
   const categories = useSelector((state) => state.categoryData.categories.body);
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
+  const [imgFile, setImgFile] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const selectCategory = (id) => {
     setCategoryId(id);
     console.log(categoryId);
   };
 
-  const handleFileSelect = (data) => {
-    const formData = data.target.files[0];
+  const handleFileSelect = (e) => {
+    const formData = e.target.files[0];
+    console.log(formData);
 
-    instance
-      .post("/api/v1/upload", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+    const response = axios({
+      method: "post",
+      url: `/api/v1/upload?file=${formData}`,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${accessToken}`,
+        Accept: "*/*",
+      },
+    })
       .then((res) => console.log(res?.data))
       .catch((err) => console.log(err));
+
+    // instance
+    //   .post(`/api/v1/upload?file=${formData}`, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data",
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res?.data);
+    //     console.log("formData", formData);
+    //   })
+    //   .catch((err) => console.log(err));
     // try {
     //   const response = axios({
     //     method: "post",
@@ -142,9 +159,10 @@ export default function Product() {
                 </div>
                 <div className="mb-3">
                   <input
-                    {...register("pictureId")}
                     className="form-control"
                     type="file"
+                    // ref={register}
+                    {...register("file")}
                     name="pictureId"
                     onChange={handleFileSelect}
                   />

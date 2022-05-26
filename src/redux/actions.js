@@ -80,7 +80,7 @@ export const accessToken =
 // accesstoken
 export const lang = localStorage.getItem("language") || "ru";
 export const instance = axios.create({
-  baseURL: "http://10.10.5.64:9091",
+  baseURL: "http://172.105.103.209:9091",
   headers: {
     Authorization: `Bearer ${accessToken}`,
     Accept: "*/*",
