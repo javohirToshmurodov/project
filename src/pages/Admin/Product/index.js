@@ -5,84 +5,64 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   accessToken,
   instance,
-  lang,
-  postProducts,
+  multipart,
+  postFile,
+  postProducts, 
 } from "../../../redux/actions";
 import { AddProductWrapper } from "../../../styles";
+import { FileInput } from "./FileInput";
 
 export default function Product() {
   const categories = useSelector((state) => state.categoryData.categories.body);
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
   const [imgFile, setImgFile] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  const [categoryId, setCategoryId] = useState(0);
   const selectCategory = (id) => {
     setCategoryId(id);
     console.log(categoryId);
   };
-
-  const handleFileSelect = (e) => {
-    const formData = e.target.files[0];
-    console.log(formData);
-
-    const response = axios({
-      method: "post",
-      url: `/api/v1/upload?file=${formData}`,
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${accessToken}`,
-        Accept: "*/*",
-      },
-    })
+  const handleFile = (e) => {
+    setImgFile(e);
+    const formData = new FormData();
+    formData.append("file", imgFile);
+    axios
+      .post("http://172.105.103.209:9091/api/v1/upload", formData, {
+        headers: {
+          Authorization:
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTQ3ODczODF9.VGqNALAf0UKx-tBl-DqK6v6yJaFMwfmR_AGBlNJP_K0",
+          Accept: "*/*",
+        },
+      })
       .then((res) => console.log(res?.data))
       .catch((err) => console.log(err));
-
-    // instance
-    //   .post(`/api/v1/upload?file=${formData}`, {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res?.data);
-    //     console.log("formData", formData);
-    //   })
-    //   .catch((err) => console.log(err));
-    // try {
-    //   const response = axios({
-    //     method: "post",
-    //     url: "/api/v1/upload",
-    //     data: formData,
-    //     headers: {
-    //       Authorization: `Bearer ${accessToken}`,
-    //       Accept: "*/*",
-    //       "Accept-Language": `${lang}`,
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   });
-    //   console.log(response?.data);
-    // } catch (err) {
-    //   console.log(err);
-    // }
   };
+  // const onSubmit = (e) => {};
+
   const createProduct = (data) => {
     const formData = data;
+    console.log(formData);
     instance
       .post("/api/v1/product/create/", formData)
       .then((res) => {
         dispatch(postProducts(res?.data));
         console.log(res?.data);
+        console.log(formData);
         reset();
       })
       .catch((err) => console.log(err));
   };
   return (
     <div className="row  align-items-center">
-      <div className="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+      <div className="col-12 col-xl-5 col-lg-6 col-md-8 col-sm-8">
         <AddProductWrapper className="text-dark">
+          <div className="mb-3"></div>
           <div className="card">
             <div className="card-header bg-dark text-white">Add product</div>
             <div className="card-body">
+              <div className="mb-3">
+                {/* <FileInput imgFile={imgFile} setImgFile={setImgFile} /> */}
+              </div>
               <form action="#" onSubmit={handleSubmit(createProduct)}>
                 <div className="mb-3">
                   <label className="form-label" htmlFor="productNameUz">
@@ -149,7 +129,7 @@ export default function Product() {
                     className="form-select mb-3 mt-4"
                     aria-label="Default select example"
                   >
-                    <option defaultValue={"1"}>Open categories</option>
+                    <option defaultValue={1}>Open categories</option>
                     {categories?.map((e, i) => (
                       <option key={i} value={e.id}>
                         {e.name}
@@ -159,12 +139,10 @@ export default function Product() {
                 </div>
                 <div className="mb-3">
                   <input
-                    className="form-control"
+                    multiple
+                    {...register("pictureId")}
                     type="file"
-                    // ref={register}
-                    {...register("file")}
-                    name="pictureId"
-                    onChange={handleFileSelect}
+                    onChange={(e) => handleFile(e.target.files[0])}
                   />
                 </div>
                 <div className="text-end">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { instance, postCategory } from "../../redux/actions";
+import { instance, loadCategories, postCategory } from "../../redux/actions";
 import { CategoryWrapper } from "../../styles";
 
 export default function Form() {
@@ -20,6 +20,7 @@ export default function Form() {
         })
         .then((res) => {
           dispatch(postCategory(res?.data));
+          dispatch(loadCategories())
           setForm(data);
           console.log(data);
           alert("category qo'shildi");

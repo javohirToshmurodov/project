@@ -7,6 +7,7 @@ const initialState = {
   loader: false,
   projects: [],
   contacts: [],
+  file: {},
   admin: {
     username: "",
     password: "",
@@ -128,6 +129,19 @@ export const contactReducer = (state = initialState, action) => {
       return {
         ...state,
         contacts: action.payload,
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export const fileReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.POST_FILE: {
+      return {
+        ...state,
+        files: action.payload,
       };
     }
     default:

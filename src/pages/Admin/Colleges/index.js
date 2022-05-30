@@ -12,7 +12,8 @@ export default function Colleges() {
       dispatch(postColleague(res?.data));
       setForm(data);
       alert("коллега добавил");
-      dispatch(loadColleges())
+      // console.log(res?.data);
+      dispatch(loadColleges());
       reset();
     });
   };

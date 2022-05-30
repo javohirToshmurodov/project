@@ -23,6 +23,8 @@ export const GET_CONTACT = "GET_CONTACT";
 export const DELETE_CONTACT = "DELETE_CONTACT"
 
 
+export const POST_FILE = "POST_FILE"
+
 // loader
 export const SHOW_LOADER = "SHOW_LOADER";
 export const HIDE_LOADER = "HIDE_LOADER"

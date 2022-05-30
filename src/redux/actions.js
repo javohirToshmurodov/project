@@ -1,5 +1,4 @@
 import axios from "axios";
-import { products } from "../data";
 import * as types from "./actionType";
 
 // METHOD GET_ALL
@@ -45,10 +44,14 @@ export const postCategory = (category) => ({
   type: types.POST_CATEGORY,
   payload: category,
 });
-export const postProducts = (products)=>({
-  type:types.POST_PRODUCTS,
-  payload:products
-})
+export const postProducts = (products) => ({
+  type: types.POST_PRODUCTS,
+  payload: products,
+});
+export const postFile = (files) => ({
+  type: types.POST_FILE,
+  payload: files,
+});
 
 // post finished
 
@@ -76,7 +79,7 @@ export const showLoader = (loader) => ({
 
 // accesstoken
 export const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTM4MzgwODN9.6yq14x30IXW4GqJeSL5qkDS1flM7oMyiGFYSFaJmTgw";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTQ3ODczODF9.VGqNALAf0UKx-tBl-DqK6v6yJaFMwfmR_AGBlNJP_K0";
 // accesstoken
 export const lang = localStorage.getItem("language") || "ru";
 export const instance = axios.create({
@@ -85,8 +88,7 @@ export const instance = axios.create({
     Authorization: `Bearer ${accessToken}`,
     Accept: "*/*",
     "Accept-Language": `${lang}`,
-    "Content-Type": "application/json",
-    
+    // "Content-Type": "application/json",
   },
 });
 

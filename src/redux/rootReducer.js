@@ -3,6 +3,7 @@ import collegesReducers, {
   authReducer,
   categoriesReducers,
   contactReducer,
+  fileReducer,
   productsReducers,
   projectsReducers,
 } from "./reducers";
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   authData: authReducer,
   contactData: contactReducer,
   categoryData: categoriesReducers,
+  fileData: fileReducer,
 });
 
 export default rootReducer;

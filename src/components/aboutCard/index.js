@@ -33,6 +33,7 @@ export default function AboutCard() {
             <div className="d-flex">
               <div className="d-flex justify-content-center align-items-center">
                 <p>{item.description}</p>
+                <p>{item.title}</p>
               </div>
             </div>
           </div>
