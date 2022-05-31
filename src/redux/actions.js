@@ -114,14 +114,19 @@ export const loadColleges = () => {
 export const loadProducts = () => {
   return function (dispatch) {
     instance
-      .get("/api/v1/category/all")
+      .get("/api/v1/product/all")
       .then((res) => {
         dispatch(getProducts(res?.data));
+        console.log(res?.data);
       })
       .catch((err) => console.log(err));
   };
 };
-
+// export const loadAllProducts = ()=>{
+//   return function(dispatch){
+//     instance.get("/api/v1/product")
+//   }
+// }
 // products
 // categories
 

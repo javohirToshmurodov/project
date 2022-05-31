@@ -6,8 +6,8 @@ import { getProducts, instance } from "../../redux/actions";
 export default function ProductCard() {
   const [produkt, setProdukt] = useState([]);
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.productData.products.body);
   const categories = useSelector((state) => state.categoryData.categories.body);
+  const products = useSelector((state) => state.productData.products.body);
 
   const navigate = useNavigate();
   const loadProducts = (id) => {
@@ -19,6 +19,7 @@ export default function ProductCard() {
       })
       .catch((err) => console.log("error", err));
   };
+
 
   return (
     <>

@@ -31,8 +31,8 @@ export default function Product() {
 
     formData.append("file", e);
     console.log(formData.get("file"));
-    axios
-      .post("http://172.105.103.209:9091/api/v1/upload", formData, {
+    instance
+      .post("/api/v1/upload", formData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           Accept: "*/*",

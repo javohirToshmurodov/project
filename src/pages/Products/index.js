@@ -5,9 +5,7 @@ import { loadProducts } from "../../redux/actions";
 
 export default function Products() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadProducts());
-  }, []);
+ 
   return (
     <div className="row mt-4">
       <h3 className="text-center mb-4">Продукты</h3>
