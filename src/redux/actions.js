@@ -115,6 +115,16 @@ export const loadColleges = () => {
 // products
 
 // products
+export const loadProducts = () => {
+  return function (dispatch) {
+    instance
+      .get("/api/v1/category/all")
+      .then((res) => {
+        dispatch(getProducts(res?.data));
+      })
+      .catch((err) => console.log(err));
+  };
+};
 
 // categories
 

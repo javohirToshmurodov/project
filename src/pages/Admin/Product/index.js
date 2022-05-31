@@ -5,50 +5,63 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   accessToken,
   instance,
-  multipart,
+  loadProducts,
   postFile,
-  postProducts, 
+  postProducts,
 } from "../../../redux/actions";
 import { AddProductWrapper } from "../../../styles";
-import { FileInput } from "./FileInput";
 
 export default function Product() {
   const categories = useSelector((state) => state.categoryData.categories.body);
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm();
-  const [imgFile, setImgFile] = useState("");
+  // const { register, handleSubmit, reset } = useForm();
+  const [nameUZ, setNameUZ] = useState("");
+  const [nameRU, setNameRU] = useState("");
+  const [descriptionUZ, setDescriptionUZ] = useState("");
+  const [descriptionRU, setDescriptionRU] = useState("");
   const [categoryId, setCategoryId] = useState(0);
+  const [pictureId, setPictureId] = useState("");
   const selectCategory = (id) => {
     setCategoryId(id);
     console.log(categoryId);
   };
   const handleFile = (e) => {
-    setImgFile(e);
     const formData = new FormData();
-    formData.append("file", imgFile);
+
+    formData.append("file", e);
+    console.log(formData.get("file"));
     axios
       .post("http://172.105.103.209:9091/api/v1/upload", formData, {
         headers: {
-          Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTQ3ODczODF9.VGqNALAf0UKx-tBl-DqK6v6yJaFMwfmR_AGBlNJP_K0",
+          Authorization: `Bearer ${accessToken}`,
           Accept: "*/*",
         },
       })
-      .then((res) => console.log(res?.data))
+      .then((res) => {
+        console.log(res?.data.body);
+        dispatch(postFile(res?.data.body));
+        setPictureId(res?.data.body);
+      })
       .catch((err) => console.log(err));
   };
   // const onSubmit = (e) => {};
 
-  const createProduct = (data) => {
-    const formData = data;
-    console.log(formData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
     instance
-      .post("/api/v1/product/create/", formData)
+      .post("/api/v1/product/create/", {
+        nameUZ: `${nameUZ}`,
+        nameRU: `${nameRU}`,
+        descriptionUZ: `${descriptionUZ}`,
+        descriptionRU: `${descriptionRU}`,
+        categoryId: `${categoryId}`,
+        pictureId: `${pictureId}`,
+      })
       .then((res) => {
         dispatch(postProducts(res?.data));
+        dispatch(loadProducts());
+
         console.log(res?.data);
-        console.log(formData);
-        reset();
       })
       .catch((err) => console.log(err));
   };
@@ -63,13 +76,13 @@ export default function Product() {
               <div className="mb-3">
                 {/* <FileInput imgFile={imgFile} setImgFile={setImgFile} /> */}
               </div>
-              <form action="#" onSubmit={handleSubmit(createProduct)}>
+              <form action="#" onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label" htmlFor="productNameUz">
                     nameUZ
                   </label>
                   <input
-                    {...register("nameUZ")}
+                    onChange={(e) => setNameUZ(e.target.value)}
                     type="text"
                     name="nameUZ"
                     required
@@ -83,7 +96,7 @@ export default function Product() {
                     nameRU
                   </label>
                   <input
-                    {...register("nameRU")}
+                    onChange={(e) => setNameRU(e.target.value)}
                     name="nameRU"
                     required
                     type="text"
@@ -97,7 +110,7 @@ export default function Product() {
                     descriptionUZ
                   </label>
                   <textarea
-                    {...register("descriptionUZ")}
+                    onChange={(e) => setDescriptionUZ(e.target.value)}
                     name="descriptionUZ"
                     id="descUz"
                     required
@@ -112,7 +125,7 @@ export default function Product() {
                     descriptionRU
                   </label>
                   <textarea
-                    {...register("descriptionRU")}
+                    onChange={(e) => setDescriptionRU(e.target.value)}
                     name="descriptionRU"
                     id="descRu"
                     cols="30"
@@ -124,7 +137,6 @@ export default function Product() {
                 </div>
                 <div className="mb-3">
                   <select
-                    {...register("categoryId")}
                     onChange={(event) => selectCategory(event.target.value)}
                     className="form-select mb-3 mt-4"
                     aria-label="Default select example"
@@ -140,8 +152,8 @@ export default function Product() {
                 <div className="mb-3">
                   <input
                     multiple
-                    {...register("pictureId")}
                     type="file"
+                    name="pictureId"
                     onChange={(e) => handleFile(e.target.files[0])}
                   />
                 </div>

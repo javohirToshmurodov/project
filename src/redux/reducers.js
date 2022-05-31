@@ -7,7 +7,7 @@ const initialState = {
   loader: false,
   projects: [],
   contacts: [],
-  file: {},
+  files: {},
   admin: {
     username: "",
     password: "",
@@ -143,7 +143,7 @@ export const fileReducer = (state = initialState, action) => {
         ...state,
         files: action.payload,
       };
-    }
+    } 
     default:
       return state;
   }
