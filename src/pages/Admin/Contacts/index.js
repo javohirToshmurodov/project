@@ -33,17 +33,17 @@ export default function Contacts() {
           <tr>
             <th>#</th>
             <th>Ф.И.О</th>
-            <th>эмаил</th>
             <th>телефон</th>
+            <th>эмаил</th>
             <th>сообщение</th>
             <th>удалять</th>
           </tr>
         </thead>
         <tbody>
           {contact?.map((e, i) => (
-            <tr key={i}>
+            <tr align="center" key={i}>
               <td>{i + 1}</td>
-              <td className="d-flex align-items-center gap-2">
+              <td>
                 <div>{e.fullName}</div>
               </td>
               <td>{e.phoneNumber}</td>

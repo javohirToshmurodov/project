@@ -4,7 +4,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import {
-  deleteColleague,
   instance,
   loadColleges,
 } from "../../../redux/actions";
@@ -40,7 +39,7 @@ export default function ColleaguesTable() {
         </thead>
         <tbody>
           {colleagues?.map((e, i) => (
-            <tr key={i}>
+            <tr align="center" key={i}>
               <td>{i + 1}</td>
               <td className="d-flex align-items-center gap-2">
                 <TableImgContainer>

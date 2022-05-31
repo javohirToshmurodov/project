@@ -8,8 +8,8 @@ export default function ProductCard() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productData.products.body);
   const categories = useSelector((state) => state.categoryData.categories.body);
-  const [idCategory, setIdCategory] = useState("");
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
   const loadProducts = (id) => {
     instance
       .get(`/api/v1/product/all/${id}`)
@@ -28,14 +28,14 @@ export default function ProductCard() {
           className="form-select mb-4"
           aria-label="Default select example"
         >
-          <option defaultValue={"1"}>Open categories</option>
+          <option defaultValue={"1"}>All categories</option>
           <option value="1">nimadir</option>
           {categories?.map((e, i) => (
             <option key={i} value={e.id}>
               {e.name}
             </option>
           ))}
-        </select> 
+        </select>
       </div>
 
       {products?.map((e, i) => (

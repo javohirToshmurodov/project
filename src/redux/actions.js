@@ -68,6 +68,10 @@ export const deleteContacts = (contacts) => ({
   type: types.DELETE_CONTACT,
   payload: contacts,
 });
+export const deleteProducts = (product) => ({
+  type: types.DELETE_PRODUCTS,
+  payload: product,
+});
 
 // delete finished
 export const showLoader = (loader) => ({
@@ -104,17 +108,9 @@ export const loadColleges = () => {
       .catch((err) => console.log("xato", err));
   };
 };
-// export const createColleague = () => {
-//   return function (dispatch) {
-//     instance
-//       .post("/api/v1/colleges/create")
-//       .then((res) => console.log(res?.data));
-//   };
-// };
 
 // products
 
-// products
 export const loadProducts = () => {
   return function (dispatch) {
     instance
@@ -126,6 +122,7 @@ export const loadProducts = () => {
   };
 };
 
+// products
 // categories
 
 export const loadCategories = () => {
@@ -160,7 +157,6 @@ export const loadContacts = () => {
       .get("/api/v1/contact/all")
       .then((res) => {
         dispatch(getContacts(res?.data));
-        console.log(res?.data);
       })
       .catch((err) => console.log(err));
   };

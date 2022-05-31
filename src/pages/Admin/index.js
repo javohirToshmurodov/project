@@ -4,6 +4,7 @@ import {
   faCartShopping,
   faListAlt,
   faPhone,
+  faTableCellsLarge,
   faTableList,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
@@ -18,20 +19,12 @@ export default function Admin() {
     <div className="row mt-3 justify-content-between">
       <div className="col-xl-2 col-lg-2 col-sm-4 col-12">
         <Sidebar className="pt-4">
-          <p
-            className="text-dark fw-bold ps-3"
-          
-          >
-            Dashboard
-          </p>
+          <p className="text-dark fw-bold ps-3">Dashboard</p>
 
           <ul>
-            <li
-            
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faCartShopping} />
-              <NavLink  
+              <NavLink
                 style={({ isActive }) => ({
                   color: isActive ? "var(--bs-yellow)" : "black",
                 })}
@@ -40,12 +33,9 @@ export default function Admin() {
                 Products
               </NavLink>
             </li>
-            <li
-              
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faListAlt} />
-              <NavLink 
+              <NavLink
                 style={({ isActive }) => ({
                   color: isActive ? "var(--bs-yellow)" : "black",
                 })}
@@ -54,12 +44,9 @@ export default function Admin() {
                 Projects
               </NavLink>
             </li>
-            <li
-              
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faUser} />
-              <NavLink 
+              <NavLink
                 style={({ isActive }) => ({
                   color: isActive ? "var(--bs-yellow)" : "black",
                 })}
@@ -68,10 +55,7 @@ export default function Admin() {
                 Colleagues
               </NavLink>
             </li>
-            <li
-              
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faBars} />
               <NavLink
                 style={({ isActive }) => ({
@@ -82,10 +66,7 @@ export default function Admin() {
                 Category
               </NavLink>
             </li>
-            <li
-             
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faPhone} />
               <NavLink
                 style={({ isActive }) => ({
@@ -96,10 +77,18 @@ export default function Admin() {
                 Contacts
               </NavLink>
             </li>
-            <li
-             
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
+              <FontAwesomeIcon icon={faTableCellsLarge} />
+              <NavLink
+                style={({ isActive }) => ({
+                  color: isActive ? "var(--bs-yellow)" : "black",
+                })}
+                to="/admin/categorytable"
+              >
+                CategoryTable
+              </NavLink>
+            </li>
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faTableList} />
               <NavLink
                 style={({ isActive }) => ({
@@ -110,10 +99,7 @@ export default function Admin() {
                 ProductTable
               </NavLink>
             </li>
-            <li
-              
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faUsers} />
               <NavLink
                 style={({ isActive }) => ({
@@ -124,10 +110,7 @@ export default function Admin() {
                 Colleaguestable
               </NavLink>
             </li>
-            <li
-              
-              className="menuItem py-3 d-flex "
-            >
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faTableList} />
               <NavLink
                 style={({ isActive }) => ({

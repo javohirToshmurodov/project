@@ -22,12 +22,14 @@ import { useDispatch } from "react-redux";
 import {
   loadCategories,
   loadColleges,
+  loadProducts,
   loadProjects,
+
 } from "./redux/actions";
 import ColleaguesTable from "./pages/Admin/ColleaguesTable";
-import Loader from "./components/Loader";
 import ProjectsTable from "./pages/Admin/ProjectsTable";
 import ProtectedRoutes from "./ProtectedRoutes";
+import CategoryTable from "./pages/Admin/CategoryTable";
 // import {}
 export default function App() {
   const dispatch = useDispatch();
@@ -35,6 +37,7 @@ export default function App() {
     dispatch(loadColleges());
     dispatch(loadCategories());
     dispatch(loadProjects());
+    dispatch(loadProducts())
   }, []);
 
   return (
@@ -42,7 +45,6 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="*" element={<Navigate to="/" replace />} />
-
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="aboutcreator" element={<AboutCreator />} />
@@ -59,6 +61,7 @@ export default function App() {
             <Route path="colleges" element={<Colleges />} />
             <Route path="project" element={<Project />} />
             <Route path="contacts" element={<Contacts />} />
+            <Route path="categorytable" element={<CategoryTable />} />
             <Route path="producttable" element={<ProductTable />} />
             <Route path="colleaguestable" element={<ColleaguesTable />} />
             <Route path="projectstable" element={<ProjectsTable />} />

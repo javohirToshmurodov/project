@@ -1,32 +1,68 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { instance, loadProjects, postProjects } from "../../../redux/actions";
+import {
+  accessToken,
+  instance,
+  loadProjects,
+  postFile,
+  postProjects,
+} from "../../../redux/actions";
 
 export default function Project() {
-  const [form, setForm] = useState({});
-  const { register, handleSubmit, reset } = useForm();
+  const [titleUZ, setTitleUZ] = useState("");
+  const [titleRU, setTitleRU] = useState("");
+  const [descriptionUZ, setDescriptionUZ] = useState("");
+  const [descriptionRU, setDescriptionRU] = useState("");
+  const [pictureId, setPictureId] = useState("");
+  const { reset } = useForm();
   const dispatch = useDispatch();
+  const handleFile = (e) => {
+    const formData = new FormData();
+
+    formData.append("file", e);
+    console.log(formData.get("file"));
+    instance
+      .post("/api/v1/upload", formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Accept: "*/*",
+        },
+      })
+      .then((res) => {
+        console.log(res?.data.body);
+        dispatch(postFile(res?.data.body));
+        setPictureId(res?.data.body);
+      })
+      .catch((err) => console.log(err));
+  };
   const createProjects = (data) => {
-    const formData = data;
-    console.log(form);
-    instance.post("/api/v1/project/create", formData).then((res) => {
-      dispatch(postProjects(res?.data));
-      setForm(data);
-      alert("проект добавлен");
-      dispatch(loadProjects())
-      reset();
-    });
+    data.preventDefault();
+    instance
+      .post("/api/v1/project/create", {
+        titleUZ: `${titleUZ}`,
+        titleRU: `${titleRU}`,
+        descriptionUZ: `${descriptionUZ}`,
+        descriptionRU: `${descriptionRU}`,
+        pictureId: `${pictureId}`,
+      })
+      .then((res) => {
+        dispatch(postProjects(res?.data));
+        console.log(res?.data);
+        alert("проект добавлен");
+        dispatch(loadProjects());
+        reset();
+      });
   };
   return (
     <div className="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-6">
       <div className="card">
         <div className="card-header bg-dark text-white">Projects crud</div>
         <div className="card-body">
-          <form onSubmit={handleSubmit(createProjects)} action="#">
+          <form onSubmit={createProjects} action="#">
             <label htmlFor="">project titleUz</label>
             <input
-              {...register("titleUZ")}
+              onChange={(e) => setTitleUZ(e.target.value)}
               type="text"
               id="titleUz"
               name="titleUZ"
@@ -37,7 +73,7 @@ export default function Project() {
 
             <label htmlFor="nameru">project titleRu</label>
             <input
-              {...register("titleRU")}
+              onChange={(e) => setTitleRU(e.target.value)}
               type="text"
               id="nameru"
               name="titleRU"
@@ -49,7 +85,7 @@ export default function Project() {
 
             <label htmlFor="descriptionUz">Description uz</label>
             <textarea
-              {...register("descriptionUZ")}
+              onChange={(e) => setDescriptionUZ(e.target.value)}
               name="descriptionUZ"
               id="descriptionUz"
               cols="30"
@@ -60,7 +96,7 @@ export default function Project() {
             ></textarea>
             <label htmlFor="descriptionRu">Description ru</label>
             <textarea
-              {...register("descriptionRU")}
+              onChange={(e) => setDescriptionRU(e.target.value)}
               name="descriptionRU"
               id="descriptionRu"
               cols="30"
@@ -69,12 +105,12 @@ export default function Project() {
               className="form-control"
               required
             ></textarea>
-            <label htmlFor="pictureid">pictureId</label>
-            {/* <input type="file" {...register("file")} className="form-control" /> */}
             <input
-              type="number"
-              {...register("pictureId")}
-              className="form-control"
+              required
+              type="file"
+              name="pictureId"
+              onChange={(e) => handleFile(e.target.files[0])}
+              className="form-control my-3"
             />
             <div className="text-end mt-3">
               <button className="btn btn-success">Add</button>

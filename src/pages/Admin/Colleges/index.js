@@ -1,31 +1,71 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { instance, loadColleges, postColleague } from "../../../redux/actions";
+import {
+  accessToken,
+  instance,
+  loadColleges,
+  postColleague,
+  postFile,
+} from "../../../redux/actions";
 export default function Colleges() {
-  const [form, setForm] = useState({});
-  const { register, handleSubmit, reset } = useForm();
+  const [nameUZ, setNameUZ] = useState("");
+  const [nameRU, setNameRU] = useState("");
+  const [descriptionUZ, setDescriptionUZ] = useState("");
+  const [descriptionRU, setDescriptionRU] = useState("");
+  const [pictureId, setPictureId] = useState("");
+  const { reset } = useForm();
   const dispatch = useDispatch();
+  const handleFile = (e) => {
+    const formData = new FormData();
+
+    formData.append("file", e);
+    console.log(formData.get("file"));
+    instance
+      .post("/api/v1/upload", formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Accept: "*/*",
+        },
+      })
+      .then((res) => {
+        console.log(res?.data.body);
+        dispatch(postFile(res?.data.body));
+        setPictureId(res?.data.body);
+      })
+      .catch((err) => console.log(err));
+  };
   const createColleague = (data) => {
-    const formData = data;
-    instance.post("/api/v1/colleges/create", formData).then((res) => {
-      dispatch(postColleague(res?.data));
-      setForm(data);
-      alert("коллега добавил");
-      // console.log(res?.data);
-      dispatch(loadColleges());
-      reset();
-    });
+    data.preventDefault();
+    instance
+      .post("/api/v1/colleges/create", {
+        nameUZ: `${nameUZ}`,
+        descriptionUZ: `${descriptionUZ}`,
+        nameRU: `${nameRU}`,
+        descriptionRU: `${descriptionRU}`,
+        pictureId: `${pictureId}`,
+      })
+      .then((res) => {
+        dispatch(postColleague(res?.data));
+        console.log(res?.data);
+        alert("коллега добавил");
+        setNameUZ("");
+        setNameRU("");
+        setDescriptionRU("");
+        setDescriptionUZ("");
+        dispatch(loadColleges());
+        reset();
+      });
   };
   return (
     <div className="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-6">
       <div className="card">
         <div className="card-header">Colleagues crud</div>
         <div className="card-body">
-          <form onSubmit={handleSubmit(createColleague)} action="#">
+          <form onSubmit={createColleague} action="#">
             <label htmlFor="college">college name</label>
             <input
-              {...register("nameUZ")}
+              onChange={(e) => setNameUZ(e.target.value)}
               type="text"
               id="nameuz"
               name="nameUZ"
@@ -35,7 +75,7 @@ export default function Colleges() {
             />
             <label htmlFor="descriptionUz">Description uz</label>
             <textarea
-              {...register("descriptionUZ")}
+              onChange={(e) => setDescriptionUZ(e.target.value)}
               name="descriptionUZ"
               id="descriptionUz"
               cols="30"
@@ -47,7 +87,7 @@ export default function Colleges() {
             <hr />
             <label htmlFor="nameru">college name</label>
             <input
-              {...register("nameRU")}
+              onChange={(e) => setNameRU(e.target.value)}
               type="text"
               id="nameru"
               name="nameRU"
@@ -58,7 +98,7 @@ export default function Colleges() {
 
             <label htmlFor="descriptionRu">Description ru</label>
             <textarea
-              {...register("descriptionRU")}
+              onChange={(e) => setDescriptionRU(e.target.value)}
               name="descriptionRU"
               id="descriptionRu"
               cols="30"
@@ -67,13 +107,14 @@ export default function Colleges() {
               className="form-control"
               required
             ></textarea>
-            <label htmlFor="pictureid">pictureId</label>
-            {/* <input type="file" {...register("file")} className="form-control" /> */}
-            <input
-              type="number"
-              {...register("pictureId")}
-              className="form-control"
-            />
+            <div className="mb-3 mt-2">
+              <input
+                required
+                type="file"
+                name="pictureId"
+                onChange={(e) => handleFile(e.target.files[0])}
+              />
+            </div>
             <div className="text-end mt-3">
               <button className="btn btn-success">Add</button>
             </div>

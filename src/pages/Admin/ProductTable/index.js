@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
-import { products } from "../../../data";
+import React from "react";
 import { faPen, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { getProducts, instance } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +18,15 @@ export default function ProductTable() {
       .catch((err) => console.log("error", err));
   };
 
+  const delProduct = (id, e) => {
+    instance
+      .delete(`/api/v1/product/delete/${id}`)
+      .then((res) => {
+        dispatch(loadProducts());
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <div className="w-25">
@@ -27,7 +35,6 @@ export default function ProductTable() {
           className="form-select mb-3 mt-4"
           aria-label="Default select example"
         >
-          <option defaultValue={"1"}>Open categories</option>
           {categories?.map((e, i) => (
             <option key={i} value={e.id}>
               {e.name}
@@ -53,9 +60,9 @@ export default function ProductTable() {
             </thead>
             <tbody>
               {products?.map((e, i) => (
-                <tr key={i}>
+                <tr align="center" key={i}>
                   <td>{i + 1}</td>
-                  <td>
+                  <td className="d-flex align-items-center gap-2">
                     <TableImgContainer>
                       <img
                         src={e.url}
@@ -65,7 +72,7 @@ export default function ProductTable() {
                     </TableImgContainer>
                     <div>{e.name}</div>
                   </td>
-                  <td>{e.description}</td>
+                  <td className="">{e.description}</td>
                   <td>{e.categoryId}</td>
                   <td>
                     <button className="btn btn-warning ">
@@ -73,7 +80,10 @@ export default function ProductTable() {
                     </button>
                   </td>
                   <td>
-                    <button className="btn btn-danger">
+                    <button
+                      onClick={(event) => delProduct(e.id, event)}
+                      className="btn btn-danger"
+                    >
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </button>
                   </td>
@@ -88,8 +98,8 @@ export default function ProductTable() {
 }
 export const TableImgContainer = styled.div`
   img {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
   }
 `;

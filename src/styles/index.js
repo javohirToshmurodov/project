@@ -108,7 +108,7 @@ export const ImgContainer = styled.div`
 
 export const Sidebar = styled.div`
   .menuItem {
-    font-size: 13px;
+    font-size: 16px;
     align-items: center;
     padding-left: 10px;
     svg {
