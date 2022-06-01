@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ProductCardWrapper } from "../../styles";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, instance } from "../../redux/actions";
+import { getProducts, instance, loadProductsAll } from "../../redux/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 export default function ProductCard() {
   const [produkt, setProdukt] = useState([]);
   const dispatch = useDispatch();
@@ -20,7 +22,6 @@ export default function ProductCard() {
       .catch((err) => console.log("error", err));
   };
 
-
   return (
     <>
       <div className=" w-25">
@@ -29,7 +30,7 @@ export default function ProductCard() {
           className="form-select mb-4"
           aria-label="Default select example"
         >
-          <option defaultValue={"1"}>All categories</option>
+          <option>All categories</option>
           <option value="1">nimadir</option>
           {categories?.map((e, i) => (
             <option key={i} value={e.id}>
@@ -58,7 +59,8 @@ export default function ProductCard() {
                 onClick={() => navigate("/contact")}
                 className="btn btn-success"
               >
-                Contact us
+                <FontAwesomeIcon className="me-2" icon={faCartShopping} />
+                контакт
               </button>
             </div>
           </div>

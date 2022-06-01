@@ -69,6 +69,7 @@ export const CardOfColleague = styled.div`
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
+  min-height: 323px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.23);
   backdrop-filter: blur(1.9px);
   border: 1px solid rgba(31, 32, 33, 0.17);

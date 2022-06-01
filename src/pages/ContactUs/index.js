@@ -7,7 +7,6 @@ import { instance, loadContacts, postContacts } from "../../redux/actions";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 export default function ContactUs() {
-  const [form, setForm] = useState({});
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
   const createContact = (data) => {
@@ -15,7 +14,6 @@ export default function ContactUs() {
     instance.post("/api/v1/contact/create", formData).then((res) => {
       dispatch(postContacts(res?.data));
       dispatch(loadContacts())
-      // setForm(data);
       alert("запрос отправлен");
       reset();
     });

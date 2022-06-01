@@ -30,7 +30,7 @@ export default function Admin() {
                 })}
                 to="/admin/product"
               >
-                Products
+                Продукт
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -41,7 +41,7 @@ export default function Admin() {
                 })}
                 to="/admin/project"
               >
-                Projects
+                Проект
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -52,7 +52,7 @@ export default function Admin() {
                 })}
                 to="/admin/colleges"
               >
-                Colleagues
+                Коллега
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -63,7 +63,7 @@ export default function Admin() {
                 })}
                 to="/admin/category"
               >
-                Category
+                Категория
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -74,7 +74,7 @@ export default function Admin() {
                 })}
                 to="/admin/contacts"
               >
-                Contacts
+                Контакты
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -85,7 +85,7 @@ export default function Admin() {
                 })}
                 to="/admin/categorytable"
               >
-                CategoryTable
+               Таблица категорий
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -96,7 +96,7 @@ export default function Admin() {
                 })}
                 to="/admin/producttable"
               >
-                ProductTable
+                Tаблица продуктов
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -107,7 +107,7 @@ export default function Admin() {
                 })}
                 to="/admin/colleaguestable"
               >
-                Colleaguestable
+                Таблица коллег
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">
@@ -118,7 +118,7 @@ export default function Admin() {
                 })}
                 to="/admin/projectstable"
               >
-                ProjectsTable
+                Таблица проектов
               </NavLink>
             </li>
           </ul>

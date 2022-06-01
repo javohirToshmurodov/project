@@ -1,10 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { faPen, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { getProducts, instance } from "../../../redux/actions";
+import { getProducts, instance, loadProductsAll } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import EditModal from "../../../components/Modal";
 export default function ProductTable() {
+  const [modal, setModal] = useState(false);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [categoryId, setCategoryId] = useState("");
+  const [pictureId, setPictureId] = useState("");
+  const [id, setId] = useState("");
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productData.products.body);
   const categories = useSelector((state) => state.categoryData.categories.body);
@@ -19,14 +26,25 @@ export default function ProductTable() {
   };
 
   const delProduct = (id, e) => {
-    instance
-      .delete(`/api/v1/product/delete/${id}`)
-      .then((res) => {
-        dispatch(loadProducts());
-      })
-      .catch((err) => console.log(err));
+    try {
+      instance.delete(`/api/v1/product/delete/${id}`).then((res) => {
+        dispatch(loadProductsAll());
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
-
+  const putProduct = (name, description, id, categoryId, pictureId) => {
+    setId(id);
+    setName(name);
+    setDescription(description);
+    setCategoryId(categoryId);
+    setPictureId(pictureId);
+    return setModal(true);
+  };
+  useEffect(() => {
+    console.log(products);
+  }, []);
   return (
     <>
       <div className="w-25">
@@ -35,6 +53,7 @@ export default function ProductTable() {
           className="form-select mb-3 mt-4"
           aria-label="Default select example"
         >
+          <option defaultValue="1">All</option>
           {categories?.map((e, i) => (
             <option key={i} value={e.id}>
               {e.name}
@@ -72,16 +91,27 @@ export default function ProductTable() {
                     </TableImgContainer>
                     <div>{e.name}</div>
                   </td>
-                  <td className="">{e.description}</td>
-                  <td>{e.categoryId}</td>
+                  <td>{e.description}</td>
+                  <td>{e.id}</td>
                   <td>
-                    <button className="btn btn-warning ">
+                    <button
+                      onClick={() =>
+                        putProduct(
+                          e.id,
+                          e.name,
+                          e.description,
+                          e.categoryId,
+                          e.pictureId
+                        )
+                      }
+                      className="btn btn-warning"
+                    >
                       <FontAwesomeIcon icon={faPen} className="text-white" />
                     </button>
                   </td>
                   <td>
                     <button
-                      onClick={(event) => delProduct(e.id, event)}
+                      onClick={(event) => delProduct(e.id)}
                       className="btn btn-danger"
                     >
                       <FontAwesomeIcon icon={faTrashAlt} />
@@ -93,6 +123,19 @@ export default function ProductTable() {
           </table>
         </div>
       </div>
+      {modal ? (
+        <EditModal
+          id={name}
+          name={id}
+          description={description}
+          categoryId={categoryId}
+          pictureId={pictureId}
+          modal={modal}
+          setModal={setModal}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }

@@ -51,8 +51,6 @@ export default function Colleges() {
         alert("коллега добавил");
         setNameUZ("");
         setNameRU("");
-        setDescriptionRU("");
-        setDescriptionUZ("");
         dispatch(loadColleges());
         reset();
       });
@@ -60,10 +58,10 @@ export default function Colleges() {
   return (
     <div className="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-6">
       <div className="card">
-        <div className="card-header">Colleagues crud</div>
+        <div className="card-header">Добавить коллегу</div>
         <div className="card-body">
           <form onSubmit={createColleague} action="#">
-            <label htmlFor="college">college name</label>
+            <label htmlFor="college">имя коллеги UZ</label>
             <input
               onChange={(e) => setNameUZ(e.target.value)}
               type="text"
@@ -73,7 +71,7 @@ export default function Colleges() {
               placeholder="uz"
               className="form-control mb-3"
             />
-            <label htmlFor="descriptionUz">Description uz</label>
+            <label htmlFor="descriptionUz"> описание UZ</label>
             <textarea
               onChange={(e) => setDescriptionUZ(e.target.value)}
               name="descriptionUZ"
@@ -81,11 +79,11 @@ export default function Colleges() {
               cols="30"
               rows="3"
               required
-              placeholder="write something"
+              placeholder=" описание..."
               className="form-control"
             ></textarea>
             <hr />
-            <label htmlFor="nameru">college name</label>
+            <label htmlFor="nameru">имя коллеги RU</label>
             <input
               onChange={(e) => setNameRU(e.target.value)}
               type="text"
@@ -96,14 +94,14 @@ export default function Colleges() {
               required
             />
 
-            <label htmlFor="descriptionRu">Description ru</label>
+            <label htmlFor="descriptionRu">описание ru</label>
             <textarea
               onChange={(e) => setDescriptionRU(e.target.value)}
               name="descriptionRU"
               id="descriptionRu"
               cols="30"
               rows="3"
-              placeholder="write something"
+              placeholder="описание..."
               className="form-control"
               required
             ></textarea>
@@ -116,7 +114,7 @@ export default function Colleges() {
               />
             </div>
             <div className="text-end mt-3">
-              <button className="btn btn-success">Add</button>
+              <button className="btn btn-success">добавлять</button>
             </div>
           </form>
         </div>

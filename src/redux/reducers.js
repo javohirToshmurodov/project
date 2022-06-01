@@ -34,6 +34,12 @@ const collegesReducers = (state = initialState, action) => {
         colleges: action.payload,
       };
     }
+    case types.PUT_COLLEGES: {
+      return {
+        ...state,
+        colleges: action.payload,
+      };
+    }
     default:
       return state;
   }
@@ -55,6 +61,12 @@ export const categoriesReducers = (state = initialState, action) => {
     case types.DELETE_CATEGORY: {
       return {
         ...state,
+      };
+    }
+    case types.PUT_CATEGORY: {
+      return {
+        ...state,
+        categories: action.payload,
       };
     }
     default:
@@ -81,6 +93,12 @@ export const productsReducers = (state = initialState, action) => {
         products: action.payload,
       };
     }
+    case types.PUT_PRODUCTS: {
+      return {
+        ...state,
+        products: action.payload,
+      };
+    }
     default:
       return state;
   }
@@ -101,6 +119,12 @@ export const projectsReducers = (state = initialState, action) => {
       };
     }
     case types.POST_PROJECTS: {
+      return {
+        ...state,
+        projects: action.payload,
+      };
+    }
+    case types.PUT_PROJECTS: {
       return {
         ...state,
         projects: action.payload,
@@ -143,7 +167,7 @@ export const fileReducer = (state = initialState, action) => {
         ...state,
         files: action.payload,
       };
-    } 
+    }
     default:
       return state;
   }

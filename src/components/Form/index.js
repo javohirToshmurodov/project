@@ -22,7 +22,6 @@ export default function Form() {
           dispatch(postCategory(res?.data));
           dispatch(loadCategories())
           setForm(data);
-          console.log(data);
           alert("category qo'shildi");
           reset();
         });
@@ -35,12 +34,12 @@ export default function Form() {
   return (
     <div className="row">
       <div className="col-lg-4 col-xl-4 col-md-4 col-sm-4 col-6">
-        <CategoryWrapper>
-          <h4 className="mb-3">Add Category</h4>
+        <CategoryWrapper className="shadow p-3 rounded">
+          <h4 className="mb-3">добавить категорию</h4>
           <form action="#" onSubmit={handleSubmit(createCategory)}>
             <div className="mb-3">
               <label htmlFor="categoryru" className="form-label">
-                Category RU
+              категори RU
               </label>
               <input
                 {...register("nameRU")}
@@ -54,7 +53,7 @@ export default function Form() {
             </div>
             <div className="mb-3">
               <label htmlFor="categoryuz" className="form-label">
-                Category UZ
+              категори UZ
               </label>
               <input
                 {...register("nameUZ")}

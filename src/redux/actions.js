@@ -68,9 +68,9 @@ export const deleteContacts = (contacts) => ({
   type: types.DELETE_CONTACT,
   payload: contacts,
 });
-export const deleteProducts = (product) => ({
+export const deleteProducts = (products) => ({
   type: types.DELETE_PRODUCTS,
-  payload: product,
+  payload: products,
 });
 
 // delete finished
@@ -78,7 +78,21 @@ export const showLoader = (loader) => ({
   type: types.SHOW_LOADER,
   payload: loader,
 });
+//  put = edit
+export const putProducts = (products) => ({
+  type: types.PUT_PRODUCTS,
+  payload: products,
+});
+export const putCategory = (category) => ({
+  type: types.PUT_CATEGORY,
+  payload: category,
+});
+export const putColleges = (colleges) => ({
+  type: types.PUT_COLLEGES,
+  payload: colleges,
+});
 // --------------------------
+
 // axiosinstance
 
 // accesstoken
@@ -92,7 +106,6 @@ export const instance = axios.create({
     Authorization: `Bearer ${accessToken}`,
     Accept: "*/*",
     "Accept-Language": `${lang}`,
-    // "Content-Type": "application/json",
   },
 });
 
@@ -111,7 +124,7 @@ export const loadColleges = () => {
 
 // products
 
-export const loadProducts = () => {
+export const loadProductsAll = () => {
   return function (dispatch) {
     instance
       .get("/api/v1/product/all")
@@ -122,13 +135,6 @@ export const loadProducts = () => {
       .catch((err) => console.log(err));
   };
 };
-// export const loadAllProducts = ()=>{
-//   return function(dispatch){
-//     instance.get("/api/v1/product")
-//   }
-// }
-// products
-// categories
 
 export const loadCategories = () => {
   return function (dispatch) {

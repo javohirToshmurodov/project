@@ -1,12 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  accessToken,
   instance,
   loadCategories,
-  loadProducts,
+  loadProductsAll,
   postFile,
   postProducts,
 } from "../../../redux/actions";
@@ -15,7 +12,6 @@ import { AddProductWrapper } from "../../../styles";
 export default function Product() {
   const categories = useSelector((state) => state.categoryData.categories.body);
   const dispatch = useDispatch();
-  const { reset } = useForm();
   const [nameUZ, setNameUZ] = useState("");
   const [nameRU, setNameRU] = useState("");
   const [descriptionUZ, setDescriptionUZ] = useState("");
@@ -32,20 +28,13 @@ export default function Product() {
     formData.append("file", e);
     console.log(formData.get("file"));
     instance
-      .post("/api/v1/upload", formData, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          Accept: "*/*",
-        },
-      })
+      .post("/api/v1/upload", formData)
       .then((res) => {
-        console.log(res?.data.body);
         dispatch(postFile(res?.data.body));
         setPictureId(res?.data.body);
       })
       .catch((err) => console.log(err));
   };
-  // const onSubmit = (e) => {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +52,7 @@ export default function Product() {
           dispatch(postProducts(res?.data));
           console.log(res?.data);
           alert("produkt dobavlen");
-          dispatch(loadProducts());
+          dispatch(loadProductsAll());
           dispatch(loadCategories());
           setNameRU("")
           setNameUZ("")
@@ -79,7 +68,7 @@ export default function Product() {
           <AddProductWrapper className="text-dark">
             <div className="mb-3"></div>
             <div className="card">
-              <div className="card-header bg-dark text-white">Add product</div>
+              <div className="card-header bg-dark text-white">Добавить продукт</div>
               <div className="card-body">
                 <div className="mb-3">
                   {/* <FileInput imgFile={imgFile} setImgFile={setImgFile} /> */}
@@ -87,13 +76,14 @@ export default function Product() {
                 <form action="#" onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label className="form-label" htmlFor="productNameUz">
-                      nameUZ
+                    имя UZ
                     </label>
                     <input
                       onChange={(e) => setNameUZ(e.target.value)}
                       type="text"
                       name="nameUZ"
                       required
+                      value={nameUZ}
                       placeholder="...."
                       id="productNameUz"
                       className="form-control"
@@ -101,12 +91,14 @@ export default function Product() {
                   </div>
                   <div className="mb-3">
                     <label className="form-label" htmlFor="productNameRu">
-                      nameRU
+                    имя RU
                     </label>
                     <input
                       onChange={(e) => setNameRU(e.target.value)}
                       name="nameRU"
                       required
+                      value={nameRU}
+
                       type="text"
                       placeholder="...."
                       id="productNameRu"
@@ -115,7 +107,7 @@ export default function Product() {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="descUz" className="form-label">
-                      descriptionUZ
+                    описание UZ
                     </label>
                     <textarea
                       onChange={(e) => setDescriptionUZ(e.target.value)}
@@ -124,13 +116,13 @@ export default function Product() {
                       required
                       cols="30"
                       rows="4"
-                      placeholder="about product . . ."
+                      placeholder="о продукте . . ."
                       className="form-control"
                     ></textarea>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="descRu" className="form-label">
-                      descriptionRU
+                    описание RU
                     </label>
                     <textarea
                       onChange={(e) => setDescriptionRU(e.target.value)}
@@ -139,7 +131,7 @@ export default function Product() {
                       cols="30"
                       required
                       rows="4"
-                      placeholder="about product . . ."
+                      placeholder="о продукте . . ."
                       className="form-control"
                     ></textarea>
                   </div>
@@ -149,7 +141,7 @@ export default function Product() {
                       className="form-select mb-3 mt-4"
                       aria-label="Default select example"
                     >
-                      <option defaultValue={1}>Open categories</option>
+                      <option defaultValue={1}>выберите категорию</option>
                       {categories?.map((e, i) => (
                         <option key={i} value={e.id}>
                           {e.name}
@@ -167,7 +159,7 @@ export default function Product() {
                     />
                   </div>
                   <div className="text-end">
-                    <button className="btn btn-warning mt-3">Submit</button>
+                    <button className="btn btn-warning mt-3">добавлять</button>
                   </div>
                 </form>
               </div>

@@ -57,33 +57,35 @@ export default function Project() {
   return (
     <div className="col-12 col-xl-5 col-lg-5 col-md-6 col-sm-6">
       <div className="card">
-        <div className="card-header bg-dark text-white">Projects crud</div>
+        <div className="card-header bg-dark text-white">Добавить проект</div>
         <div className="card-body">
           <form onSubmit={createProjects} action="#">
-            <label htmlFor="">project titleUz</label>
+            <label htmlFor="">название проекта UZ</label>
             <input
               onChange={(e) => setTitleUZ(e.target.value)}
               type="text"
               id="titleUz"
               name="titleUZ"
+              value={titleUZ}
               required
               placeholder="uz"
               className="form-control mb-3"
             />
 
-            <label htmlFor="nameru">project titleRu</label>
+            <label htmlFor="nameru">название проекта RU</label>
             <input
               onChange={(e) => setTitleRU(e.target.value)}
               type="text"
               id="nameru"
               name="titleRU"
               placeholder="ru"
+              value={titleRU}
               className="form-control mb-3"
               required
             />
             <hr />
 
-            <label htmlFor="descriptionUz">Description uz</label>
+            <label htmlFor="descriptionUz">описание uz</label>
             <textarea
               onChange={(e) => setDescriptionUZ(e.target.value)}
               name="descriptionUZ"
@@ -91,17 +93,17 @@ export default function Project() {
               cols="30"
               rows="3"
               required
-              placeholder="write something"
+              placeholder="о проекте"
               className="form-control"
             ></textarea>
-            <label htmlFor="descriptionRu">Description ru</label>
+            <label htmlFor="descriptionRu">описание ru</label>
             <textarea
               onChange={(e) => setDescriptionRU(e.target.value)}
               name="descriptionRU"
               id="descriptionRu"
               cols="30"
               rows="3"
-              placeholder="write something"
+              placeholder="о проекте"
               className="form-control"
               required
             ></textarea>
@@ -113,7 +115,7 @@ export default function Project() {
               className="form-control my-3"
             />
             <div className="text-end mt-3">
-              <button className="btn btn-success">Add</button>
+              <button className="btn btn-success">добавлять</button>
             </div>
           </form>
         </div>

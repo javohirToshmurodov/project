@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import ProductCard from "../../components/ProductCard";
-import { loadProducts } from "../../redux/actions";
+import { loadProductsAll } from "../../redux/actions";
 
 export default function Products() {
   const dispatch = useDispatch();
- 
+  // useEffect(() => {
+  //   dispatch(loadProductsAll());
+  // });
   return (
     <div className="row mt-4">
       <h3 className="text-center mb-4">Продукты</h3>
