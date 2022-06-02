@@ -18,7 +18,9 @@ export default function CollegesModal(props) {
     display: "block",
     backgroundColor: "rgba(0,0,0,0.6)",
   };
-
+  useEffect(() => {
+    console.log(props);
+  }, []);
   const selectFile = (e) => {
     console.log(e);
     const fd = new FormData();
@@ -31,28 +33,27 @@ export default function CollegesModal(props) {
       })
       .catch((err) => console.log(err));
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    instance
-      .put("/api/v1/colleges/update", {
-        id: `${props.id}`,
-        name: `${name}`,
-        description: `${description}`,
-        pictureId: `${pictureId}`,
-      })
-      .then((res) => {
-        console.log(res?.data);
-        dispatch(putColleges());
-        dispatch(loadColleges());
-        props.setModal(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const editCollege = (event) => {
+    event.preventDefault();
+    try {
+      instance
+        .put("/api/v1/colleges/update", {
+          id: `${props.id}`,
+          name: `${name}`,
+          description: `${description}`,
+          pictureId: `${pictureId}`,
+        })
+        .then((res) => {
+          console.log(res?.data);
+          dispatch(putColleges());
+          dispatch(loadColleges());
+          props.setModal(false);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
-  useEffect(() => {
-    console.log(props);
-  }, []);
+  
   return (
     <>
       <div className="modal" tabindex="-1" style={modalStyle}>
@@ -69,7 +70,6 @@ export default function CollegesModal(props) {
               ></button>
             </div>
             <div className="modal-body">
-              <form action="#" onClick={handleSubmit}>
                 <label htmlFor="name">name</label>
                 <input
                   type="text"
@@ -90,19 +90,17 @@ export default function CollegesModal(props) {
                   className="form-control"
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
-                <label htmlFor="img">select File</label>
                 <input
-                  className="form-control mt-3"
                   type="file"
-              
+                  onChange={(e) => selectFile(e.target.files[0])}
+                  className="mt-3"
                 />
+
                 <div className="text-end mt-3">
                   <button className="btn btn-warning">
-                    <FontAwesomeIcon className="me-2" icon={faPencilRuler} />
                     Edit
                   </button>
                 </div>
-              </form>
             </div>
           </div>
         </div>

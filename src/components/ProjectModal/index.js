@@ -1,29 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   instance,
-  loadCategories,
-  loadProductsAll,
+  loadProjects,
   postFile,
-  putProducts,
+  putProjects,
 } from "../../redux/actions";
 
-export default function EditModal(props) {
-  const [name, setName] = useState(props.description);
-  const [desc, setDesc] = useState(props.name);
-  const [categoryId, setCategoryId] = useState(props.categoryId);
+export default function ProjectModal(props) {
+  const [title, setTitle] = useState(props.title);
+  const [description, setDescription] = useState(props.description);
   const [pictureId, setPictureId] = useState("");
   const dispatch = useDispatch();
-  const categories = useSelector((state) => state.categoryData.categories.body);
   const modalStyle = {
     display: "block",
     backgroundColor: "rgba(0,0,0,0.6)",
   };
-
-  const selectCategory = (id) => {
-    setCategoryId(id);
-    console.log(categoryId);
-  };
+  useEffect(() => {
+    console.log(props);
+  }, []);
   const handleFile = (e) => {
     console.log(e);
     const fd = new FormData();
@@ -36,39 +31,33 @@ export default function EditModal(props) {
       })
       .catch((err) => console.log(err));
   };
-  const handleSubmit = (e) => {
+  const editProject = (e) => {
     e.preventDefault();
     try {
       instance
-        .put("api/v1/product/update", {
+        .put("/api/v1/project/update", {
           id: `${props.id}`,
-          name: `${name}`,
-          description: `${desc}`,
-          categoryId: `${categoryId}`,
+          title: `${title}`,
+          description: `${description}`,
           pictureId: `${pictureId}`,
         })
         .then((res) => {
           console.log(res?.data);
-          dispatch(putProducts());
-          dispatch(loadCategories());
-          dispatch(loadProductsAll());
-          alert("Выполнено")
+          dispatch(putProjects());
+          dispatch(loadProjects());
+          alert("edited");
           props.setModal(false);
         });
     } catch (err) {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    console.log(props);
-  }, []);
   return (
-    <div className="modal " tabindex="-1" style={modalStyle}>
+    <div className="modal" tabindex="-1" style={modalStyle}>
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">изменит коллеги</h5>
+            <h5 className="modal-title">Modal title</h5>
             <button
               onClick={() => props.setModal(false)}
               type="button"
@@ -78,51 +67,36 @@ export default function EditModal(props) {
             ></button>
           </div>
           <div className="modal-body">
-            <form action="" onSubmit={handleSubmit}>
-              <label htmlFor="name">college name</label>
+            <form action="#" onSubmit={editProject}>
               <input
                 name="name"
                 required
                 id="name"
                 type="text"
-                value={name}
+                value={title}
                 className="form-control my-2"
                 placeholder="....."
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
               />
               <label htmlFor="description">description</label>
               <textarea
                 name="description"
                 id="description"
-                value={desc}
+                value={description}
                 cols="30"
                 required
                 rows="3"
                 placeholder="......"
-                onChange={(e) => setDesc(e.target.value)}
+                onChange={(e) => setDescription(e.target.value)}
                 className="form-control my-2"
               ></textarea>
-              <select
-                onChange={(event) => selectCategory(event.target.value)}
-                className="form-select my-2"
-                name="categoryId"
-                required
-                defaultValue={categoryId}
-              >
-                {categories?.map((e, i) => (
-                  <option key={i} value={e.id}>
-                    {e.name}
-                  </option>
-                ))}
-              </select>
               <input
-                onChange={(e) => handleFile(e.target.files[0])}
                 type="file"
-                className="form-control mt-2"
-                required
+                onChange={(e) => handleFile(e.target.files[0])}
+                className="form-control"
               />
               <div className="text-end mt-3">
-                <button className="btn btn-warning">Add</button>
+                <button className="btn btn-warning">add</button>
               </div>
             </form>
           </div>

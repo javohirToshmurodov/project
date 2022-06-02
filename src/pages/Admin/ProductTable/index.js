@@ -13,7 +13,7 @@ export default function ProductTable() {
   const [pictureId, setPictureId] = useState("");
   const [id, setId] = useState("");
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.productData.products.body);
+  const products = useSelector((state) => state.productData.products?.body);
   const categories = useSelector((state) => state.categoryData.categories.body);
   const loadProducts = (id) => {
     instance
@@ -29,6 +29,7 @@ export default function ProductTable() {
     try {
       instance.delete(`/api/v1/product/delete/${id}`).then((res) => {
         dispatch(loadProductsAll());
+        alert("продукт удален")
       });
     } catch (err) {
       console.log(err);
@@ -40,10 +41,10 @@ export default function ProductTable() {
     setDescription(description);
     setCategoryId(categoryId);
     setPictureId(pictureId);
-    return setModal(true);
+    setModal(true);
   };
   useEffect(() => {
-    console.log(products);
+    dispatch(loadProductsAll());
   }, []);
   return (
     <>

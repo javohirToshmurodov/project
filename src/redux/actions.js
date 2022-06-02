@@ -91,6 +91,10 @@ export const putColleges = (colleges) => ({
   type: types.PUT_COLLEGES,
   payload: colleges,
 });
+export const putProjects = (projects) => ({
+  type: types.PUT_PROJECTS,
+  payload: projects,
+});
 // --------------------------
 
 // axiosinstance

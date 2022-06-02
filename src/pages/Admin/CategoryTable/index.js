@@ -20,6 +20,7 @@ export default function CategoryTable() {
       instance.delete(`/api/v1/category/delete/${id}`).then((res) => {
         dispatch(loadCategories());
         dispatch(loadProductsAll());
+        alert("категория удалена")
       });
     } catch (err) {
       console.log(err);

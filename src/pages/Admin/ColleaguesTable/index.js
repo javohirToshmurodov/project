@@ -18,6 +18,7 @@ export default function ColleaguesTable() {
     try {
       instance.delete(`/api/v1/colleges/delete/${id}`).then((res) => {
         dispatch(loadColleges());
+        alert("коллеги удален")
       });
     } catch (err) {
       console.log(err);
@@ -28,7 +29,7 @@ export default function ColleaguesTable() {
     setDescription(description);
     setName(name);
     setPictureId(pictureId);
-    return setModal(true);
+    setModal(true);
   };
   return (
     <>

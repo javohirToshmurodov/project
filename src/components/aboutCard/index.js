@@ -20,20 +20,20 @@ export default function AboutCard() {
         >
           <div
             className="col-xl-5 col-lg-5 col-md-5 col-sm-9 col-9"
-            data-aos="fade-down-right"
-            data-aos-duration="1400"
+            data-aos="fade-left"
+            data-aos-duration="900"
           >
             <img className="img-fluid roundedImage" src={item.url} alt="" />
           </div>
           <div
             className="col-xl-5 col-lg-5 col-md-5 col-sm-9 col-9"
             data-aos="fade-left"
-            data-aos-duration="1400"
+            data-aos-duration="900"
           >
             <div className="d-flex">
-              <div className="d-flex justify-content-center align-items-center">
-                <p>{item.description}</p>
-                <p>{item.title}</p>
+              <div className="d-flex flex-column justify-content-center align-items-center">
+                <p className="fw-bold  text-justify">{item.title}</p>
+                <p className="text-justify">{item.description}</p>
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   instance,
@@ -54,119 +54,118 @@ export default function Product() {
           alert("produkt dobavlen");
           dispatch(loadProductsAll());
           dispatch(loadCategories());
-          setNameRU("")
-          setNameUZ("")
+          setNameRU("");
+          setNameUZ("");
         });
     } catch (err) {
       console.log(err);
     }
   };
+  useEffect(() => {}, []);
   return (
-    categories && (
-      <div className="row  align-items-center">
-        <div className="col-12 col-xl-5 col-lg-6 col-md-8 col-sm-8">
-          <AddProductWrapper className="text-dark">
-            <div className="mb-3"></div>
-            <div className="card">
-              <div className="card-header bg-dark text-white">Добавить продукт</div>
-              <div className="card-body">
-                <div className="mb-3">
-                  {/* <FileInput imgFile={imgFile} setImgFile={setImgFile} /> */}
-                </div>
-                <form action="#" onSubmit={handleSubmit}>
-                  <div className="mb-3">
-                    <label className="form-label" htmlFor="productNameUz">
-                    имя UZ
-                    </label>
-                    <input
-                      onChange={(e) => setNameUZ(e.target.value)}
-                      type="text"
-                      name="nameUZ"
-                      required
-                      value={nameUZ}
-                      placeholder="...."
-                      id="productNameUz"
-                      className="form-control"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label className="form-label" htmlFor="productNameRu">
-                    имя RU
-                    </label>
-                    <input
-                      onChange={(e) => setNameRU(e.target.value)}
-                      name="nameRU"
-                      required
-                      value={nameRU}
-
-                      type="text"
-                      placeholder="...."
-                      id="productNameRu"
-                      className="form-control"
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="descUz" className="form-label">
-                    описание UZ
-                    </label>
-                    <textarea
-                      onChange={(e) => setDescriptionUZ(e.target.value)}
-                      name="descriptionUZ"
-                      id="descUz"
-                      required
-                      cols="30"
-                      rows="4"
-                      placeholder="о продукте . . ."
-                      className="form-control"
-                    ></textarea>
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="descRu" className="form-label">
-                    описание RU
-                    </label>
-                    <textarea
-                      onChange={(e) => setDescriptionRU(e.target.value)}
-                      name="descriptionRU"
-                      id="descRu"
-                      cols="30"
-                      required
-                      rows="4"
-                      placeholder="о продукте . . ."
-                      className="form-control"
-                    ></textarea>
-                  </div>
-                  <div className="mb-3">
-                    <select
-                      onChange={(event) => selectCategory(event.target.value)}
-                      className="form-select mb-3 mt-4"
-                      aria-label="Default select example"
-                    >
-                      <option defaultValue={1}>выберите категорию</option>
-                      {categories?.map((e, i) => (
-                        <option key={i} value={e.id}>
-                          {e.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="mb-3">
-                    <input
-                      multiple
-                      required
-                      type="file"
-                      name="pictureId"
-                      onChange={(e) => handleFile(e.target.files[0])}
-                    />
-                  </div>
-                  <div className="text-end">
-                    <button className="btn btn-warning mt-3">добавлять</button>
-                  </div>
-                </form>
-              </div>
+    <div className="row  align-items-center">
+      <div className="col-12 col-xl-5 col-lg-6 col-md-8 col-sm-8">
+        <AddProductWrapper className="text-dark">
+          <div className="mb-3"></div>
+          <div className="card">
+            <div className="card-header bg-dark text-white">
+              Добавить продукт
             </div>
-          </AddProductWrapper>
-        </div>
+            <div className="card-body">
+              <div className="mb-3">
+              </div>
+              <form action="#" onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="productNameUz">
+                    имя UZ
+                  </label>
+                  <input
+                    onChange={(e) => setNameUZ(e.target.value)}
+                    type="text"
+                    name="nameUZ"
+                    required
+                    value={nameUZ}
+                    placeholder="...."
+                    id="productNameUz"
+                    className="form-control"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="productNameRu">
+                    имя RU
+                  </label>
+                  <input
+                    onChange={(e) => setNameRU(e.target.value)}
+                    name="nameRU"
+                    required
+                    value={nameRU}
+                    type="text"
+                    placeholder="...."
+                    id="productNameRu"
+                    className="form-control"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="descUz" className="form-label">
+                    описание UZ
+                  </label>
+                  <textarea
+                    onChange={(e) => setDescriptionUZ(e.target.value)}
+                    name="descriptionUZ"
+                    id="descUz"
+                    required
+                    cols="30"
+                    rows="4"
+                    placeholder="о продукте . . ."
+                    className="form-control"
+                  ></textarea>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="descRu" className="form-label">
+                    описание RU
+                  </label>
+                  <textarea
+                    onChange={(e) => setDescriptionRU(e.target.value)}
+                    name="descriptionRU"
+                    id="descRu"
+                    cols="30"
+                    required
+                    rows="4"
+                    placeholder="о продукте . . ."
+                    className="form-control"
+                  ></textarea>
+                </div>
+                <div className="mb-3">
+                  <select
+                    onChange={(event) => selectCategory(event.target.value)}
+                    className="form-select mb-3 mt-4"
+                    aria-label="Default select example"
+                  >
+                    <option defaultValue={1}>выберите категорию</option>
+                    {categories?.map((e, i) => (
+                      <option key={i} value={e.id}>
+                        {e.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="mb-3">
+                  <input
+                    multiple
+                    required
+                    type="file"
+                    name="pictureId"
+                    onChange={(e) => handleFile(e.target.files[0])}
+                  />
+                </div>
+                <div className="text-end">
+                  <button className="btn btn-warning mt-3">добавлять</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </AddProductWrapper>
       </div>
-    )
+    </div>
   );
 }

@@ -18,6 +18,7 @@ export default function Contacts() {
         .delete(`/api/v1/contact/delete/${id}`)
         .then((res) => {
           dispatch(loadContacts());
+          alert("контакт удален")
         });
     } catch (err) {
       console.log(err);

@@ -23,6 +23,7 @@ export default function CategoryModal(props) {
         console.log(res?.data);
         dispatch(putProducts())
         dispatch(loadCategories())
+        alert("отредактировано")
         props.setModal(false)
       });
   };
