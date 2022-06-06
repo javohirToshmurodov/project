@@ -18,7 +18,6 @@ export default function Colleges() {
   const dispatch = useDispatch();
   const handleFile = (e) => {
     const formData = new FormData();
-
     formData.append("file", e);
     console.log(formData.get("file"));
     instance
@@ -109,6 +108,7 @@ export default function Colleges() {
               <input
                 required
                 type="file"
+                className="form-control"
                 name="pictureId"
                 onChange={(e) => handleFile(e.target.files[0])}
               />

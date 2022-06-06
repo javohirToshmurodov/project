@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { SignUpWrapper } from "../../styles";
 import { useRef } from "react";
 import Admin from "../Admin";
-import {  accessToken, instance } from "../../redux/actions";
+import { accessToken, instance } from "../../redux/actions";
 import { Outlet, useNavigate } from "react-router-dom";
 export default function Signup() {
   const usernameRef = useRef();
@@ -10,7 +10,7 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     setErrMsg("");
   }, [user, password]);
@@ -26,22 +26,20 @@ export default function Signup() {
         })
         .then((res) => {
           console.log(res?.data.body);
-          localStorage.setItem("accesstoken", res?.data.body.accessToken)
-          if(accessToken){
-            navigate("/admin")
-          }else{
-            navigate("/login")
+          localStorage.setItem("accesstoken", res?.data.body.accessToken);
+          if (accessToken) {
+            navigate("/admin");
+          } else {
+            navigate("/login");
           }
         });
       if (user === "admin" && password === "password") {
         setSuccess(true);
-      } else if (user !== "admin" &&  password !== "password") {
-        alert("username or password is incorrect , please try again")
+      } else if (user !== "admin" && password !== "password") {
+        alert("username or password is incorrect , please try again");
         setSuccess(false);
-      }else{
-        alert(
-          "username or password is incorrect, please try again!"
-        )
+      } else {
+        alert("username or password is incorrect, please try again!");
       }
       setUser("");
       setPassword("");
@@ -70,17 +68,17 @@ export default function Signup() {
       ) : (
         <>
           <SignUpWrapper className="col-md-6 col-sm-8 col-xs-8 col-lg-6 col-xl-4  col-8">
-            <h1 className="text-center"> Log in</h1>
+            <h2 className="text-center"> Aвторизоваться</h2>
             <form action="#" className="w-100" onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
-                  Username
+                  Имя пользователя
                 </label>
                 <input
                   type="text"
                   id="username"
                   className="form-control"
-                  placeholder="Username..."
+                  placeholder="пользователя..."
                   required
                   ref={usernameRef}
                   value={user}
@@ -90,7 +88,7 @@ export default function Signup() {
 
               <div className="mb-4">
                 <label htmlFor="password" className="form-label">
-                  Password
+                  Пароль
                 </label>
                 <input
                   type="password"

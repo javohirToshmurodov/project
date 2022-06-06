@@ -6,7 +6,7 @@ import styled from "styled-components";
 import CollegesModal from "../../../components/CollegesModal";
 import { instance, loadColleges } from "../../../redux/actions";
 export default function ColleaguesTable() {
-  const colleagues = useSelector((state) => state.data.colleges.body);
+  const colleagues = useSelector((state) => state.data.colleges?.body);
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [id, setId] = useState("");
@@ -18,7 +18,7 @@ export default function ColleaguesTable() {
     try {
       instance.delete(`/api/v1/colleges/delete/${id}`).then((res) => {
         dispatch(loadColleges());
-        alert("коллеги удален")
+        alert("коллеги удален");
       });
     } catch (err) {
       console.log(err);
@@ -29,7 +29,7 @@ export default function ColleaguesTable() {
     setDescription(description);
     setName(name);
     setPictureId(pictureId);
-    setModal(true);
+    return setModal(true);
   };
   return (
     <>

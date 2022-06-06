@@ -33,7 +33,7 @@ export default function CollegesModal(props) {
       })
       .catch((err) => console.log(err));
   };
-  const editCollege = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     try {
       instance
@@ -47,13 +47,14 @@ export default function CollegesModal(props) {
           console.log(res?.data);
           dispatch(putColleges());
           dispatch(loadColleges());
+          alert("отредактировано");
           props.setModal(false);
         });
     } catch (err) {
       console.log(err);
     }
   };
-  
+
   return (
     <>
       <div className="modal" tabindex="-1" style={modalStyle}>
@@ -70,6 +71,7 @@ export default function CollegesModal(props) {
               ></button>
             </div>
             <div className="modal-body">
+              <form action="#" onSubmit={handleSubmit}>
                 <label htmlFor="name">name</label>
                 <input
                   type="text"
@@ -91,16 +93,17 @@ export default function CollegesModal(props) {
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
                 <input
+                  multiple
+                  required
                   type="file"
+                  name="pictureId"
                   onChange={(e) => selectFile(e.target.files[0])}
-                  className="mt-3"
+                  className="mt-3 form-control"
                 />
-
                 <div className="text-end mt-3">
-                  <button className="btn btn-warning">
-                    Edit
-                  </button>
+                  <button className="btn btn-warning">Edit</button>
                 </div>
+              </form>
             </div>
           </div>
         </div>

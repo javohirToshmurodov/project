@@ -24,7 +24,7 @@ export default function ContactUs() {
     <div className="row mt-3 text-dark justify-content-center gap-3 align-items-center">
       <div className=" mt-3 col-xl-4 col-lg-6 col-md-6 col-sm-8 col-12">
         <ContactWrapper className="py-3">
-          <h5 className="text-center">Contact us</h5>
+          <h5 className="text-center">Свяжитесь с нами</h5>
           <form onSubmit={handleSubmit(createContact)} action="#">
             <div className="mb-3">
               <label className="form-label" htmlFor="contactName">
@@ -85,7 +85,7 @@ export default function ContactUs() {
               ></textarea>
             </div>
             <div className="text-end">
-              <button className="btn btn-success">Submit</button>
+              <button className="btn btn-success">контакт</button>
             </div>
           </form>
         </ContactWrapper>

@@ -22,7 +22,7 @@ export default function Form() {
           dispatch(postCategory(res?.data));
           dispatch(loadCategories())
           setForm(data);
-          alert("category qo'shildi");
+          alert("category добавлять");
           reset();
         });
     } catch (err) {
@@ -66,7 +66,7 @@ export default function Form() {
               />
             </div>
             <div className="text-end">
-              <button className="btn btn-warning mt-3 ">Submit</button>
+              <button className="btn btn-warning mt-3 ">добавлять</button>
             </div>
           </form>
         </CategoryWrapper>

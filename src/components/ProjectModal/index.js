@@ -45,7 +45,7 @@ export default function ProjectModal(props) {
           console.log(res?.data);
           dispatch(putProjects());
           dispatch(loadProjects());
-          alert("edited");
+          alert("отредактировано");
           props.setModal(false);
         });
     } catch (err) {

@@ -19,7 +19,7 @@ export default function Admin() {
     <div className="row mt-3 justify-content-between">
       <div className="col-xl-2 col-lg-2 col-sm-4 col-12">
         <Sidebar className="pt-4">
-          <p className="text-dark fw-bold ps-3">Dashboard</p>
+          <p className="text-dark fw-bold ps-3">Панель администратора</p>
 
           <ul>
             <li className="menuItem py-3 d-flex ">
