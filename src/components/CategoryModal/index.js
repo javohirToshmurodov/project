@@ -2,7 +2,7 @@ import { faPencilRuler } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { instance, loadCategories, putCategory, putProducts } from "../../redux/actions";
+import { instance, loadCategories,  putProducts } from "../../redux/actions";
 
 export default function CategoryModal(props) {
   const [name, setName] = useState(props.name);
@@ -46,7 +46,7 @@ export default function CategoryModal(props) {
           </div>
           <div className="modal-body">
             <form action="" onSubmit={handleEdit}>
-              <label htmlFor="editName">Ism</label>
+              <label htmlFor="editName">название категории</label>
               <input
                 type="text"
                 name="name"
@@ -58,7 +58,7 @@ export default function CategoryModal(props) {
               <div className="text-end">
                 <button className="btn btn-warning">
                   <FontAwesomeIcon icon={faPencilRuler} className="me-2" />
-                  edit
+                  изменится
                 </button>
               </div>
             </form>

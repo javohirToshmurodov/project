@@ -17,7 +17,7 @@ export default function ProjectsTable() {
     try {
       instance.delete(`/api/v1/project/delete/${id}`).then((res) => {
         dispatch(loadProjects());
-        alert("проект удален")
+        alert("проект удален");
       });
     } catch (err) {
       console.log(err);
@@ -33,10 +33,8 @@ export default function ProjectsTable() {
   return (
     <>
       <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-12">
-        <table
-          data-aos="fade-up"
-          className="w-100 table table-hover rounded table-bordered table-dark table-striped mt-5"
-        >
+        <h3>таблица проектов</h3>
+        <table className="w-100 table table-hover rounded table-bordered table-dark table-striped mt-3">
           <thead>
             <tr>
               <th>#</th>

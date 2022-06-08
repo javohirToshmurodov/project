@@ -22,10 +22,8 @@ export default function EditModal(props) {
 
   const selectCategory = (id) => {
     setCategoryId(id);
-    console.log(categoryId);
   };
   const handleFile = (e) => {
-    console.log(e);
     const fd = new FormData();
     fd.append("file", e);
     instance
@@ -68,7 +66,7 @@ export default function EditModal(props) {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">изменит коллеги</h5>
+            <h5 className="modal-title">изменит продукт</h5>
             <button
               onClick={() => props.setModal(false)}
               type="button"
@@ -79,7 +77,7 @@ export default function EditModal(props) {
           </div>
           <div className="modal-body">
             <form action="" onSubmit={handleSubmit}>
-              <label htmlFor="name">college name</label>
+              <label htmlFor="name">название продукта</label>
               <input
                 name="name"
                 required
@@ -90,7 +88,7 @@ export default function EditModal(props) {
                 placeholder="....."
                 onChange={(e) => setName(e.target.value)}
               />
-              <label htmlFor="description">description</label>
+              <label htmlFor="description">описание</label>
               <textarea
                 name="description"
                 id="description"
@@ -102,7 +100,9 @@ export default function EditModal(props) {
                 onChange={(e) => setDesc(e.target.value)}
                 className="form-control my-2"
               ></textarea>
+              <label htmlFor="category">выберите категорию</label>
               <select
+              id="category"
                 onChange={(event) => selectCategory(event.target.value)}
                 className="form-select my-2"
                 name="categoryId"
@@ -115,7 +115,9 @@ export default function EditModal(props) {
                   </option>
                 ))}
               </select>
+              <label htmlFor="photo">Фото</label>
               <input
+              id="photo"
                 onChange={(e) => handleFile(e.target.files[0])}
                 type="file"
                 className="form-control mt-2"

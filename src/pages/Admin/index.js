@@ -23,6 +23,17 @@ export default function Admin() {
 
           <ul>
             <li className="menuItem py-3 d-flex ">
+              <FontAwesomeIcon icon={faBars} />
+              <NavLink
+                style={({ isActive }) => ({
+                  color: isActive ? "var(--bs-yellow)" : "black",
+                })}
+                to="/admin/category"
+              >
+                Категория
+              </NavLink>
+            </li>
+            <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faCartShopping} />
               <NavLink
                 style={({ isActive }) => ({
@@ -55,17 +66,7 @@ export default function Admin() {
                 Коллега
               </NavLink>
             </li>
-            <li className="menuItem py-3 d-flex ">
-              <FontAwesomeIcon icon={faBars} />
-              <NavLink
-                style={({ isActive }) => ({
-                  color: isActive ? "var(--bs-yellow)" : "black",
-                })}
-                to="/admin/category"
-              >
-                Категория
-              </NavLink>
-            </li>
+
             <li className="menuItem py-3 d-flex ">
               <FontAwesomeIcon icon={faPhone} />
               <NavLink
@@ -85,7 +86,7 @@ export default function Admin() {
                 })}
                 to="/admin/categorytable"
               >
-               Таблица категорий
+                Таблица категорий
               </NavLink>
             </li>
             <li className="menuItem py-3 d-flex ">

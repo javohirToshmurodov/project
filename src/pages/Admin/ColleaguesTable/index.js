@@ -34,9 +34,9 @@ export default function ColleaguesTable() {
   return (
     <>
       <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-12">
+        <h3>таблица коллеги</h3>
         <table
-          data-aos="fade-up"
-          className="w-100 table table-hover rounded table-bordered table-dark table-striped mt-5"
+          className="w-100 table table-hover rounded table-bordered table-dark table-striped mt-3"
         >
           <thead>
             <tr>

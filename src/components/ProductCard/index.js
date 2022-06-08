@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ProductCardWrapper } from "../../styles";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, instance, loadProductsAll } from "../../redux/actions";
+import { getProducts, instance } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 export default function ProductCard() {
-  const [produkt, setProdukt] = useState([]);
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoryData.categories?.body);
   const products = useSelector((state) => state.productData.products?.body);
@@ -17,7 +16,6 @@ export default function ProductCard() {
       .get(`/api/v1/product/all/${id}`)
       .then((res) => {
         dispatch(getProducts(res?.data));
-        console.log(res?.data);
       })
       .catch((err) => console.log("error", err));
   };

@@ -9,7 +9,6 @@ export default function Contacts() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadContacts());
-    console.log(contact);
   }, []);
 
   const delContact = (id, e) => {

@@ -20,7 +20,6 @@ export default function ProjectModal(props) {
     console.log(props);
   }, []);
   const handleFile = (e) => {
-    console.log(e);
     const fd = new FormData();
     fd.append("file", e);
     instance
@@ -57,7 +56,7 @@ export default function ProjectModal(props) {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
+            <h5 className="modal-title">редактировать проект</h5>
             <button
               onClick={() => props.setModal(false)}
               type="button"
@@ -68,6 +67,7 @@ export default function ProjectModal(props) {
           </div>
           <div className="modal-body">
             <form action="#" onSubmit={editProject}>
+              <label htmlFor="name">Название Проекта</label>
               <input
                 name="name"
                 required
@@ -78,7 +78,7 @@ export default function ProjectModal(props) {
                 placeholder="....."
                 onChange={(e) => setTitle(e.target.value)}
               />
-              <label htmlFor="description">description</label>
+              <label htmlFor="description">описание</label>
               <textarea
                 name="description"
                 id="description"
@@ -90,13 +90,15 @@ export default function ProjectModal(props) {
                 onChange={(e) => setDescription(e.target.value)}
                 className="form-control my-2"
               ></textarea>
+              <label htmlFor="photo">Фото</label>
               <input
+              id="photo"
                 type="file"
                 onChange={(e) => handleFile(e.target.files[0])}
                 className="form-control"
               />
               <div className="text-end mt-3">
-                <button className="btn btn-warning">add</button>
+                <button className="btn btn-warning">редактировать</button>
               </div>
             </form>
           </div>

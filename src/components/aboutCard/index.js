@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loadProjects } from "../../redux/actions";
+import React from "react";
+import { useSelector } from "react-redux";
 import { AboutCardWrapper } from "../../styles";
 
 export default function AboutCard() {
-  const [project, setProject] = useState([]);
   const projects = useSelector((state) => state.projectData.projects.body);
-  useEffect(() => {
-    setProject(projects);
-    console.log(projects);
-  }, []);
 
   return (
     <>
@@ -37,6 +31,7 @@ export default function AboutCard() {
               </div>
             </div>
           </div>
+          <hr className="my-3 w-75" />
         </AboutCardWrapper>
       ))}
     </>

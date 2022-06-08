@@ -3,7 +3,7 @@ import ColleaguesCard from "../../components/ColleaguesCard";
 
 export default function Colleagues() {
   return (
-    <div className="row px-5 mt-3">
+    <div className="row justify-content-center px-5 mt-3">
       <h2
         data-aos="fade-down"
         data-aos-duration="500"

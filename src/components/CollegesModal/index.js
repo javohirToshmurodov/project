@@ -1,5 +1,3 @@
-import { faPencilRuler } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -61,7 +59,7 @@ export default function CollegesModal(props) {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Modal title</h5>
+              <h5 className="modal-title">коллега редактировать</h5>
               <button
                 onClick={() => props.setModal(false)}
                 type="button"
@@ -72,7 +70,7 @@ export default function CollegesModal(props) {
             </div>
             <div className="modal-body">
               <form action="#" onSubmit={handleSubmit}>
-                <label htmlFor="name">name</label>
+                <label htmlFor="name">имя</label>
                 <input
                   type="text"
                   placeholder=". . . . "
@@ -81,7 +79,7 @@ export default function CollegesModal(props) {
                   onChange={(e) => setName(e.target.value)}
                 />
 
-                <label htmlFor="desc">Desc</label>
+                <label htmlFor="desc">описание</label>
                 <textarea
                   name="description"
                   id="desc"
@@ -92,16 +90,18 @@ export default function CollegesModal(props) {
                   className="form-control"
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
+                <label className="mt-3" htmlFor="photo">Фото</label>
                 <input
+                id="photo"
                   multiple
                   required
                   type="file"
                   name="pictureId"
                   onChange={(e) => selectFile(e.target.files[0])}
-                  className="mt-3 form-control"
+                  className="form-control"
                 />
                 <div className="text-end mt-3">
-                  <button className="btn btn-warning">Edit</button>
+                  <button className="btn btn-warning">редактировать</button>
                 </div>
               </form>
             </div>

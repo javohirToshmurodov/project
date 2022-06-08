@@ -100,12 +100,11 @@ export const putProjects = (projects) => ({
 // axiosinstance
 
 // accesstoken
-export const accessToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIkFETUlOIl0sImlzcyI6Imh0dHA6Ly8xNzIuMTA1LjEwMy4yMDk6OTA5MS9hcGkvbG9naW4iLCJleHAiOjE2NTQ3ODczODF9.VGqNALAf0UKx-tBl-DqK6v6yJaFMwfmR_AGBlNJP_K0";
+export const accessToken = localStorage.getItem("accesstoken") || "";
 // accesstoken
 export const lang = localStorage.getItem("language") || "ru";
 export const instance = axios.create({
-  baseURL: "http://172.105.103.209:9091",
+  baseURL: "http://172.105.11.236:9091",
   headers: {
     Authorization: `Bearer ${accessToken}`,
     Accept: "*/*",
@@ -134,7 +133,6 @@ export const loadProductsAll = () => {
       .get("/api/v1/product/all")
       .then((res) => {
         dispatch(getProducts(res?.data));
-        console.log(res?.data);
       })
       .catch((err) => console.log(err));
   };

@@ -19,7 +19,6 @@ export default function Colleges() {
   const handleFile = (e) => {
     const formData = new FormData();
     formData.append("file", e);
-    console.log(formData.get("file"));
     instance
       .post("/api/v1/upload", formData, {
         headers: {
@@ -28,7 +27,6 @@ export default function Colleges() {
         },
       })
       .then((res) => {
-        console.log(res?.data.body);
         dispatch(postFile(res?.data.body));
         setPictureId(res?.data.body);
       })
@@ -46,7 +44,6 @@ export default function Colleges() {
       })
       .then((res) => {
         dispatch(postColleague(res?.data));
-        console.log(res?.data);
         alert("коллега добавил");
         setNameUZ("");
         setNameRU("");
@@ -105,7 +102,9 @@ export default function Colleges() {
               required
             ></textarea>
             <div className="mb-3 mt-2">
+              <label htmlFor="photo">Фото</label>
               <input
+                id="photo"
                 required
                 type="file"
                 className="form-control"

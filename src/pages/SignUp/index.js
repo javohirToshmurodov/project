@@ -33,9 +33,9 @@ export default function Signup() {
             navigate("/login");
           }
         });
-      if (user === "admin" && password === "password") {
+      if (user === "karkasjbiadmin" && password === "karkasjbi2022!") {
         setSuccess(true);
-      } else if (user !== "admin" && password !== "password") {
+      } else if (user !== "karkasjbiadmin" && password !== "karkasjbi2022!") {
         alert("username or password is incorrect , please try again");
         setSuccess(false);
       } else {

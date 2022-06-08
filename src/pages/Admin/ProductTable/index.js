@@ -20,7 +20,6 @@ export default function ProductTable() {
       .get(`/api/v1/product/all/${id}`)
       .then((res) => {
         dispatch(getProducts(res?.data));
-        console.log(res?.data);
       })
       .catch((err) => console.log("error", err));
   };
@@ -65,7 +64,6 @@ export default function ProductTable() {
       <div className="row">
         <div className="col-xl-9 col-lg-9 col-md-6 col-sm-6 col-12">
           <table
-            data-aos="fade-up"
             className="w-100 table table-hover rounded table-bordered table-dark table-striped mt-5"
           >
             <thead>

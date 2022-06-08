@@ -20,7 +20,6 @@ export default function Product() {
   const [pictureId, setPictureId] = useState("");
   const selectCategory = (id) => {
     setCategoryId(id);
-    console.log(categoryId);
   };
   const handleFile = (e) => {
     const formData = new FormData();
@@ -50,7 +49,6 @@ export default function Product() {
         })
         .then((res) => {
           dispatch(postProducts(res?.data));
-          console.log(res?.data);
           alert("produkt dobavlen");
           dispatch(loadProductsAll());
           dispatch(loadCategories());
